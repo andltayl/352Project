@@ -60,15 +60,18 @@ We will be creating a similar game in the vein of Flappy Bird, which we are call
 
 \subsubsection{Functional}
 	\begin{itemize}
-	\item User needs to have a private shopping cart -- this cannot be shared between users, and needs to maintain state across subsequent visits to the site
-	\item Users need to have website accounts -- this will help track recent purchases, keep shopping cart records, etc.
-	\item You'll need more than 2 of these...
+	\item The game must be controlled with "Spacebar" key or "left-click" mouse button.
+	\item The game must be implemented with C\# WPF.
+	\item The game must feature music and sound effects.
+	\item The game must feature obstacle generation with several different difficulty options.
+	\item The game must be pausable with the "P" key.
 	\end{itemize}
 
 \subsubsection{Non-Functional}
 	\begin{itemize}
 	\item Security -- user credentials must be encrypted on disk, users should be able to reset their passwords if forgotten
-	\item you'll typically have fewer non-functional than functional requirements
+	\item Performance -- Speed of obstacle generation.
+	\item Scalability -- The obstacle generation will be potentially unlimited obstacle generation.
 	\end{itemize}
 
 \subsection{Use Cases}
@@ -220,6 +223,20 @@ Alternative: The user chooses the "Title" button
 \item The program will return to the title screen.
 \item[Termination Outcome:] The user will be at the Title screen at case: 1. 
 \end{enumerate}
+
+
+\begin{figure}[ht!]
+\includegraphics[height=250px, width=350px]{Scoreboard_Screen.png}
+\caption{First picture, This is the 5\textsubscript{th} Mock-Interface.}
+\label{cat1}
+\end{figure}
+
+\begin{figure}[ht!]
+\includegraphics[height=250px, width=350px]{High_Score_Screen.png}
+\caption{Second picture, This is the last Mock-Interface.}
+\label{cat1}
+\end{figure}
+
 
 \subsection{Interface Mockups}
 At first, this will largely be completely made up, as you get further along in your project, and closer to a final product, this will typically become simple screenshots of your running application.
