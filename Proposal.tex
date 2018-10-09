@@ -53,7 +53,7 @@ We will be creating a similar game in the vein of Flappy Bird, which we are call
 	We expect that insuring the player character's movement is smooth and responsive will be difficult. Hit boxes and fail states will be initially difficult. If we decide to have randomly generated pipes, we believe this will prove to be extremely tricky.
 
 \section{Scope}
-	Our main goal is to make Leaping Llamas, a simple Flappy Bird-like game. If we find ourselves finished well before the due date, we will add additional mechanics to further set it apart from Flappy Bird. Firstly, we would like to add bullet hell mechanics. Secondly, we could implement a number of power-ups and checkpoints.
+	Our main goal is to make Leaping Llamas, a simple Flappy Bird-like game. If we find ourselves finished well before the due date, we will add additional mechanics to further set it apart from Flappy Bird. Firstly, we would like to add bullet hell mechanics. Bullet hell mechanics are a usually extreme or hell-like amount of obstacles, usually bullet-like, that while challenging should be dodgable from somewhere on-screen.  Secondly, we would like to add onto the existing game in the form of animating objects, in order of: the background, the llama, any buttons, and any obstacles like 'pipes' and/or bullet-likes. 
 
 \subsection{Requirements}
 	As part of fleshing out the scope of your requirements, you'll also need to keep in mind both your functional and non-functional requirements.  These should be listed, and explained in detail as necessary.  Use this area to explain how you gathered these requirements.
@@ -125,9 +125,6 @@ Alternative: User chooses the "Exit" button
 \item[Termination Outcome:] The user has kill the program.
 \end{enumerate}
 
-You will often also need to include pictures or diagrams.  It is quite common to see use-case diagrams in such write-ups.  To properly reference an image, you will need to use the \texttt{figure} environment and will need to reference it in your text (via the \texttt{ref} command) (see Figure \ref{cat1}).  NOTE: this is not a use case diagram, but a kitten.
-
-After fully describing a use case, it is time to move on to the next use case:
 
 %Case 2
 \begin{itemize}
@@ -163,6 +160,7 @@ Alternative: User chooses "Back" button
 \item[Termination Outcome:] The user has chosen to go back to the Case: 1 screen.
 \end{enumerate}
 
+
 %Case 3
 \begin{itemize}
 \item[Use Case Number:] 3
@@ -176,7 +174,6 @@ Alternative: User chooses "Back" button
 \item The game will end once the user's Llama hits an obstacle
 \item[Termination Outcome:] The user has played the game portion of the program.
 \end{enumerate}
-
 
 
 %Case 4
@@ -201,6 +198,7 @@ Alternative: The user scored a High Score
 \item[Termination Outcome:] The user will either replay the game with new score or proceed to the High Score screen.
 \end{enumerate}
 
+
 %Case 5
 \begin{itemize}
 \item[Use Case Number:] 5
@@ -224,20 +222,15 @@ Alternative: The user chooses the "Title" button
 \item[Termination Outcome:] The user will be at the Title screen at case: 1. 
 \end{enumerate}
 
-
 \begin{figure}[ht!]
 \includegraphics[height=250px, width=350px]{Mockup.png}
 \caption{First picture, This is full number of Mock-Interfaces planned.}
-\label{Complete mockup}
+\label{fig:mockup}
 \end{figure}
 
-
 \subsection{Interface Mockups}
-At first, this will largely be completely made up, as you get further along in your project, and closer to a final product, this will typically become simple screenshots of your running application.
-
-In this subsection, you will be showing what the screen should look like as the user moves through various use cases (make sure to tie the interface mockups back to the specific use cases they illustrate).
-
-
+For all below see Figure \ref{fig:mockup}
+First in order, the user will begin on the 'Title' screen and choose one of the button to move to the corresponding screen. Next the 'Difficulty' screen buttons will all lead to the 'Game' screen. The 'Game' screen will always lead to the 'Score' screen at the end of the game. The 'Score' screen has two choices as follows. Lastly, the 'Highscore' screen will lead to two different options as follows.
 
 \section{Project Timeline}
 Go back to your notes and look up a typical project development life cycle for the Waterfall approach.  How will you follow this life cycle over the remainder of this semester?  This will usually involve a chart showing your proposed timeline, with specific milestones plotted out.  Make sure you have deliverable dates from the course schedule listed, with a plan to meet them (NOTE: these are generally optimistic deadlines).
