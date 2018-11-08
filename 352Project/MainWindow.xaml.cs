@@ -21,22 +21,33 @@ namespace _352Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        private double gravity = 0.08;
+        private double velocity = 0;
+        private double leapDist = 5;
+
         public MainWindow()
         {
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer();
-            //timer.Tick += new EventHandler(OnSpaceDownHandler);
+            timer.Tick += new EventHandler(gravityConstant);
+            timer.Interval = TimeSpan.FromMilliseconds(0.5);
+            timer.Start();
 
             this.KeyDown += new KeyEventHandler(OnSpaceDownHandler);
+        }
+
+        private void gravityConstant(object sender, EventArgs e)
+        {
+            velocity += gravity;
+            llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top + velocity, llama.Margin.Right, llama.Margin.Bottom - velocity);
         }
 
         private void OnSpaceDownHandler(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Space)
             {
-                Thickness currMargin = llama.Margin;
-                currMargin.Top += 12;
-                llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top - 12, llama.Margin.Right, llama.Margin.Bottom + 12);
+                velocity -= leapDist;
+                //llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top - 50, llama.Margin.Right, llama.Margin.Bottom + 50);
             }
         }
     }
