@@ -34,7 +34,9 @@ namespace _352Project
         {
             if (e.Key == Key.Space)
             {
-                llama.Margin = new Thickness(413, 243, 0, 0);
+                Thickness currMargin = llama.Margin;
+                currMargin.Top += 12;
+                llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top - 12, llama.Margin.Right, llama.Margin.Bottom + 12);
             }
         }
     }

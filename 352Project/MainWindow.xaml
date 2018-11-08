@@ -8,7 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FFC82929">
         <Image x:Name="llama2" HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="110" Margin="208,185,0,0" Source="pack://siteoforigin:,,,/Resources/llama.png"/>
-        <Image x:Name="llama" Margin="392,174,279.6,134" Source="llama.png" Stretch="Fill"/>
+        <Image x:Name="llama" Margin="500,239,149.6,25" Source="llama.png" Stretch="Fill"/>
+
 
     </Grid>
 </Window>
