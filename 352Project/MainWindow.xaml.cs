@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace _352Project
 {
@@ -23,6 +24,18 @@ namespace _352Project
         public MainWindow()
         {
             InitializeComponent();
+            DispatcherTimer timer = new DispatcherTimer();
+            //timer.Tick += new EventHandler(OnSpaceDownHandler);
+
+            this.KeyDown += new KeyEventHandler(OnSpaceDownHandler);
+        }
+
+        private void OnSpaceDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                llama.Margin = new Thickness(413, 243, 0, 0);
+            }
         }
     }
 }

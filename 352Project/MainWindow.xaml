@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FFC82929">
-        <Image HorizontalAlignment="Left" Height="228" VerticalAlignment="Top" Width="283" Margin="243,94,0,0" Source="C:\Users\garre\Source\Repos\352Project\Game_Screen.png"/>
+        <Image x:Name="llama2" HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="110" Margin="208,185,0,0" Source="pack://siteoforigin:,,,/Resources/llama.png"/>
+        <Image x:Name="llama" Margin="392,174,279.6,134" Source="llama.png" Stretch="Fill"/>
 
     </Grid>
 </Window>
