@@ -23,6 +23,7 @@ namespace _352Project
         public ChangingWindow()
         {
             InitializeComponent();
+            this.contentControl.Content = new UserControl1();
         }
 
         private void ButtonClick(object sender, RoutedEventArgs e)
