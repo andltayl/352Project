@@ -10,21 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace _352Project
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ChangingWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ChangingWindow : Window
     {
         int window = 1;
-        public MainWindow()
+        public ChangingWindow()
         {
             InitializeComponent();
-            this.contentControl.Content = new UserControl1();
         }
 
         private void ButtonClick(object sender, RoutedEventArgs e)
