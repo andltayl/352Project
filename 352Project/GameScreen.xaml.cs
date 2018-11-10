@@ -17,15 +17,15 @@ using System.Windows.Threading;
 namespace _352Project
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for GameScreen.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GameScreen : Window
     {
         private double gravity = 0.08;
         private double velocity = 0;
         private double leapDist = 5;
 
-        public MainWindow()
+        public GameScreen()
         {
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer();
@@ -38,15 +38,29 @@ namespace _352Project
 
         private void gravityConstant(object sender, EventArgs e)
         {
-            velocity += gravity;
-            llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top + velocity, llama.Margin.Right, llama.Margin.Bottom - velocity);
+            //let the player go only slightly off screen
+            if (llama.Margin.Top > -25)
+            {
+                velocity += gravity;
+
+                llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top + velocity, llama.Margin.Right, llama.Margin.Bottom - velocity);
+            }
+
+            else
+            {
+                velocity -= gravity;
+                llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top + 25, llama.Margin.Right, llama.Margin.Bottom - 25);
+            }
+            
         }
 
         private void OnSpaceDownHandler(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Space)
             {
-                velocity -= leapDist;
+              
+                    velocity -= leapDist;
+                
                 //llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top - 50, llama.Margin.Right, llama.Margin.Bottom + 50);
             }
         }
