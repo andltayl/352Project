@@ -14,6 +14,8 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Image x:Name="llama" Margin="87,111,591,201.667" Source="llama.png" Stretch="Fill"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,399,0,0" TextWrapping="Wrap" Text="Time: " VerticalAlignment="Top" Width="42" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="time" HorizontalAlignment="Left" Height="23" Margin="52,399,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40" BorderBrush="{x:Null}" RenderTransformOrigin="0.025,0.572"/>
 
 
     </Grid>

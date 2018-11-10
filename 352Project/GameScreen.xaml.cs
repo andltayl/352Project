@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,17 +25,33 @@ namespace _352Project
         private double gravity = 0.08;
         private double velocity = 0;
         private double leapDist = 5;
+        private int seconds = 0;
+     
 
         public GameScreen()
         {
+            //timer for jumps
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(gravityConstant);
             timer.Interval = TimeSpan.FromMilliseconds(0.5);
             timer.Start();
 
+            //timer for time display
+            DispatcherTimer t = new DispatcherTimer();
+            t.Tick += new EventHandler(timeSetter);
+            t.Interval = TimeSpan.FromSeconds(1);
+            t.Start();
             this.KeyDown += new KeyEventHandler(OnSpaceDownHandler);
         }
+
+        //display time
+        private void timeSetter(object sender, EventArgs e)
+        {
+            seconds++;
+            time.Text = seconds.ToString();
+        }
+     
 
         private void gravityConstant(object sender, EventArgs e)
         {
@@ -63,6 +80,13 @@ namespace _352Project
                 
                 //llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top - 50, llama.Margin.Right, llama.Margin.Bottom + 50);
             }
+
+            //player pauses game
+            //if (e.Key == Key.P) 
+                //freeze timer?
+
         }
+
+      
     }
 }
