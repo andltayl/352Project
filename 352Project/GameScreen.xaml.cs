@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
@@ -19,7 +18,7 @@ namespace _352Project
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GameScreen : Window
     {
         //for movement of llama
         private double gravity = 0.08;
@@ -31,15 +30,15 @@ namespace _352Project
         //NOTE: All bottom fences are even # and top fences are odd #
 
 
-        public MainWindow()
+        public GameScreen()
         {
             InitializeComponent();
 
             //time for constant drop of llama
             DispatcherTimer timer = new DispatcherTimer();
-                //dropping llama
+            //dropping llama
             timer.Tick += new EventHandler(gravityConstant);
-                //moving fences
+            //moving fences
             timer.Tick += new EventHandler(fenceMovement);
             timer.Interval = TimeSpan.FromMilliseconds(0.5);
             timer.Start();
@@ -75,16 +74,16 @@ namespace _352Project
             //NOTE: All bottom fences are even # and top fences are odd #
             //creating new bottom fence control
             fences.Add(new Image());
-                //Top Fence
-            genContent(fences[fences.Count-1],false);
-                //Adding to Grid
-            Gameshow.Children.Add(fences[fences.Count-1]);
+            //Top Fence
+            genContent(fences[fences.Count - 1], false);
+            //Adding to Grid
+            Gameshow.Children.Add(fences[fences.Count - 1]);
 
             //creating new top fence control
             fences.Add(new Image());
-                //Bottom Fence
+            //Bottom Fence
             genContent(fences[fences.Count - 1], true);
-                //Adding to Grid
+            //Adding to Grid
             Gameshow.Children.Add(fences[fences.Count - 1]);
 
         }
@@ -114,16 +113,16 @@ namespace _352Project
                 createdFence.UpdateLayout();
             }
             else
-            {                
+            {
                 createdFence.Margin = new Thickness(800, 263, -40, -170);
             }
         }
 
         private void fenceMovement(object sender, EventArgs e)
         {
-            foreach(Image i in fences)
+            foreach (Image i in fences)
             {
-                i.Margin = new Thickness(i.Margin.Left- approaching, i.Margin.Top, i.Margin.Right + approaching, i.Margin.Bottom);
+                i.Margin = new Thickness(i.Margin.Left - approaching, i.Margin.Top, i.Margin.Right + approaching, i.Margin.Bottom);
             }
         }
     }
