@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:_352Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="#FFC82929">
+    <Grid x:Name="Gameshow" Background="#FFC82929">
+        <!--
         <Image x:Name="llama2" HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="110" Margin="208,185,0,0" Source="pack://siteoforigin:,,,/Resources/llama.png"/>
-        <Image x:Name="llama" Margin="87,62,562,202" Source="llama.png" Stretch="Fill"/>
-
+        -->
+        <Image x:Name="llama" Margin="87,62,562,202" Source="pack://application:,,,/Resources/llama.png" Stretch="Fill"/>
 
     </Grid>
 </Window>
