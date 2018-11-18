@@ -66,7 +66,7 @@
             </Rectangle.Effect>
         </Rectangle>
         <TextBox HorizontalAlignment="Left" Height="60" Margin="560,58,0,0" TextWrapping="Wrap" Text="How to Play" VerticalAlignment="Top" Width="136" Background="{x:Null}" Foreground="#FFFDFDFD" FontWeight="Bold" BorderBrush="{x:Null}" FontSize="22"/>
-        <TextBox HorizontalAlignment="Left" Height="62" Margin="576,123,0,0" TextWrapping="Wrap" Text="Jump through pipes! Don't hit one or it's game over!" VerticalAlignment="Top" Width="120" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFDFDFD"/>
+        <TextBox HorizontalAlignment="Left" Height="62" Margin="576,123,0,0" TextWrapping="Wrap" Text="Jump through pipes! Don't hit one or it's game over!" VerticalAlignment="Top" Width="120" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFDFDFD" Focusable="False" IsTabStop="False" AllowDrop="False" SelectionBrush="{x:Null}" Cursor="Arrow"/>
         <TextBox HorizontalAlignment="Left" Height="48" Margin="560,198,0,0" TextWrapping="Wrap" Text="Press Space to Jump!" VerticalAlignment="Top" Width="164" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFDFDFD" FontSize="16"/>
         <Button x:Name="startButton" Content="Start" HorizontalAlignment="Left" Margin="602,291,0,0" VerticalAlignment="Top" Width="75" Background="#FFFDFDFD" Click="startButton_Click"/>
 

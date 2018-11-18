@@ -22,9 +22,9 @@ namespace _352Project
     /// </summary>
     public partial class GameScreen : Window
     {
-        private double gravity = 0.08;
+        private double gravity = 0.1;
         private double velocity = 0;
-        private double leapDist = 5;
+        private double leapDist = 3.5;
         private int seconds = 0;
      
 
@@ -56,7 +56,7 @@ namespace _352Project
         private void gravityConstant(object sender, EventArgs e)
         {
             //let the player go only slightly off screen
-            if (llama.Margin.Top > -25)
+            if (llama.Margin.Top > 0)
             {
                 velocity += gravity;
 
@@ -65,8 +65,8 @@ namespace _352Project
 
             else
             {
-                velocity -= gravity;
-                llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top + 25, llama.Margin.Right, llama.Margin.Bottom - 25);
+                velocity = gravity;
+                llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top + 1, llama.Margin.Right, llama.Margin.Bottom - 1);
             }
             
         }
@@ -75,9 +75,15 @@ namespace _352Project
         {
             if (e.Key == Key.Space)
             {
-              
+                if (velocity > 0)
+                {
+                    velocity = 0;
                     velocity -= leapDist;
-                
+                }
+                else
+                {
+                    velocity -= leapDist;
+                }
                 //llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top - 50, llama.Margin.Right, llama.Margin.Bottom + 50);
             }
 
