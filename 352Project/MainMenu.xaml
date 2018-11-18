@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:_352Project"
         mc:Ignorable="d"
         Title="StartMenu" Height="450" Width="800">
-   
-    
+
+
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -31,7 +31,7 @@
         <Button x:Name="difficultyButton" Content="Difficulty" HorizontalAlignment="Left" Margin="64,245,0,0" VerticalAlignment="Top" Width="108" Height="28" Background="#FFFFFEFE" Click ="difficultySelect"/>
         <Button Content="High Scores" HorizontalAlignment="Left" Margin="62,296,0,0" VerticalAlignment="Top" Width="108" Height="30" Background="White"/>
         <Button x:Name="exitButton" Content="Exit" HorizontalAlignment="Left" Margin="62,349,0,0" VerticalAlignment="Top" Width="108" Height="29" RenderTransformOrigin="0.502,3.05" Background="White" Click="exitButton_Click"/>
-       
+
         <Image x:Name="llama" Source ="C:\Users\smats\source\repos\StartMenu\StartMenu\llama.png " HorizontalAlignment="Left" Height="359" Margin="132,43,0,0" VerticalAlignment="Top" Width="446" RenderTransformOrigin="1,0">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -65,9 +65,10 @@
                 <DropShadowEffect/>
             </Rectangle.Effect>
         </Rectangle>
-        <TextBox HorizontalAlignment="Left" Height="60" Margin="560,58,0,0" TextWrapping="Wrap" Text="How to Play" VerticalAlignment="Top" Width="136" Background="{x:Null}" Foreground="#FFFDFDFD" FontWeight="Bold" BorderBrush="{x:Null}" FontSize="22"/>
-        <TextBox HorizontalAlignment="Left" Height="62" Margin="576,123,0,0" TextWrapping="Wrap" Text="Jump through pipes! Don't hit one or it's game over!" VerticalAlignment="Top" Width="120" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFDFDFD"/>
-        <TextBox HorizontalAlignment="Left" Height="48" Margin="560,198,0,0" TextWrapping="Wrap" Text="Press Space to Jump!" VerticalAlignment="Top" Width="164" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFDFDFD" FontSize="16"/>
+        <TextBox HorizontalAlignment="Center" Height="60" Margin="565,58,72,0" TextWrapping="Wrap" Text="How to Play" VerticalAlignment="Top" Width="159" Background="{x:Null}" Foreground="#FFFDFDFD" FontWeight="Bold" BorderBrush="{x:Null}" FontSize="22"/>
+        <TextBox HorizontalAlignment="Left" Height="62" Margin="560,118,0,0" TextWrapping="Wrap" Text="Jump through pipes!
+                 Don't hit one or it's game over!" VerticalAlignment="Top" Width="175" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFDFDFD"/>
+        <TextBox HorizontalAlignment="Left" Height="48" Margin="560,198,0,0" TextWrapping="Wrap" Text="Press Space to Jump Press P to Pause" VerticalAlignment="Top" Width="164" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFDFDFD" FontSize="16"/>
         <Button x:Name="startButton" Content="Start" HorizontalAlignment="Left" Margin="602,291,0,0" VerticalAlignment="Top" Width="75" Background="#FFFDFDFD" Click="startButton_Click"/>
 
     </Grid>
