@@ -75,7 +75,7 @@ namespace _352Project
         {
             if (e.Key == Key.Space)
             {
-                if (velocity > 0)
+                if (velocity > 0) // if there is downward momentum cancel it and jump up
                 {
                     velocity = 0;
                     velocity -= leapDist;
