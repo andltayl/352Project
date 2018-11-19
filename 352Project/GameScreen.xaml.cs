@@ -94,8 +94,11 @@ namespace _352Project
         {
             if (e.Key == Key.Space)
             {
+                if (velocity > 0)
+                    velocity = -leapDist;
+                else
+                    velocity -= leapDist;
                 //velocity -= leapDist;
-                velocity = -leapDist;
                 //llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top - 50, llama.Margin.Right, llama.Margin.Bottom + 50);
             }
         }
