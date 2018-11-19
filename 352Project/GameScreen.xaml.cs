@@ -157,7 +157,14 @@ namespace _352Project
         {
             foreach (Image i in fences)
             {
-                i.Margin = new Thickness(i.Margin.Left - approaching, i.Margin.Top, i.Margin.Right + approaching, i.Margin.Bottom);
+                if (i.Margin.Left <= 0)
+                {
+                    fences.Remove(i);
+                }
+                else
+                {
+                    i.Margin = new Thickness(i.Margin.Left - approaching, i.Margin.Top, i.Margin.Right + approaching, i.Margin.Bottom);
+                }
             }
         }
     }

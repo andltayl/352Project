@@ -32,7 +32,7 @@
         <Button Content="High Scores" HorizontalAlignment="Left" Margin="62,296,0,0" VerticalAlignment="Top" Width="108" Height="30" Background="White"/>
         <Button x:Name="exitButton" Content="Exit" HorizontalAlignment="Left" Margin="62,349,0,0" VerticalAlignment="Top" Width="108" Height="29" RenderTransformOrigin="0.502,3.05" Background="White" Click="exitButton_Click"/>
 
-        <Image x:Name="llama" Source ="\llama.png" HorizontalAlignment="Left" Height="359" Margin="132,43,0,0" VerticalAlignment="Top" Width="446" RenderTransformOrigin="1,0">
+        <Image x:Name="llama" Source ="pack://application:,,,/Resources/llama.png" HorizontalAlignment="Left" Margin="224,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="1,0" Height="311" Width="232">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
