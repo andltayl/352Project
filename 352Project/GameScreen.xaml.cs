@@ -24,7 +24,7 @@ namespace _352Project
         //for movement of llama
         private double gravity = 0.08;
         private double velocity = 0;
-        private double leapDist = 2;
+        private double leapDist = 4;
         //timer variable
         private int minutes = 0;
         private int seconds = 0;
@@ -49,7 +49,7 @@ namespace _352Project
             //timer of generating of fences
             DispatcherTimer genTimer = new DispatcherTimer();
             genTimer.Tick += new EventHandler(GenerateFence);
-            genTimer.Interval = TimeSpan.FromSeconds(5);
+            genTimer.Interval = TimeSpan.FromSeconds(3);
             genTimer.Start();
             //timer for time display
             DispatcherTimer t = new DispatcherTimer();
@@ -137,11 +137,19 @@ namespace _352Project
             //Stretch
             createdFence.Stretch = Stretch.Fill;
             //Margins
+                //size need so llama can jump thru with little room
+            double sizeTest = (Gameshow.ActualHeight + llama.ActualHeight+10)/2;
+                //random 
+            Random random = new Random();
+            List<double> fenceSizes = new List<double>(3);
+            double spaceChanger = (random.NextDouble()*((sizeTest-20) - 0) + 0);
+            fenceSizes.Add(sizeTest - spaceChanger);
+            fenceSizes.Add(sizeTest + spaceChanger);
             //Thickness(Left,Top,Right,Bottom)
             //after motion made change left -> Gameshow.Margin.Right, right -> Gameshow.Margin.Right
             if (Top)
             {
-                createdFence.Margin = new Thickness(800, -100, -40, 249);
+                createdFence.Margin = new Thickness(800, -1, -40, fenceSizes[0]);
                 //flip
                 createdFence.RenderTransformOrigin = new Point { X = 0.5, Y = 0.5 };
                 createdFence.RenderTransform = new ScaleTransform() { ScaleY = -1 };
@@ -149,21 +157,32 @@ namespace _352Project
             }
             else
             {
-                createdFence.Margin = new Thickness(800, 263, -40, -170);
+                createdFence.Margin = new Thickness(800, fenceSizes[1], -40, -1);
             }
         }
 
         private void fenceMovement(object sender, EventArgs e)
         {
-            foreach (Image i in fences)
+            List<int> remove = new List<int>();
+            //moves all fences to left by variable -> approaching
+            for(int i=0; i< fences.Count; i++)
             {
-                if (i.Margin.Left <= 0)
+                if(fences[i].Margin.Left < -20)
                 {
-                    fences.Remove(i);
+                    remove.Add(i);
                 }
                 else
                 {
-                    i.Margin = new Thickness(i.Margin.Left - approaching, i.Margin.Top, i.Margin.Right + approaching, i.Margin.Bottom);
+                    fences[i].Margin = new Thickness(fences[i].Margin.Left - approaching, fences[i].Margin.Top, fences[i].Margin.Right + approaching, fences[i].Margin.Bottom);
+                }
+            }
+            //removes fence once off-screen
+            foreach (int i in remove)
+            {
+
+                if(i <= fences.Count)
+                {
+                    Gameshow.Children.Remove(fences[i]);
                 }
             }
         }
