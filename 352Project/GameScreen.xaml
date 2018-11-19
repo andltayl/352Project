@@ -16,18 +16,7 @@
         <!--
         <Image x:Name="llama2" HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="110" Margin="208,185,0,0" Source="pack://siteoforigin:,,,/Resources/llama.png"/>
         -->
-        <Image x:Name="llama" Margin="87,62,652.6,301" Source="pack://application:,,,/Resources/llama.png" Stretch="Fill"/>
-        <Image x:Name="fence" Margin="595,258,168.6,-19" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill"/>
-        <Image x:Name="fence_Copy" Margin="595,-31,168.6,269" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="180"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+        <Image x:Name="llama" Margin="0,64,739.6,299" Source="pack://application:,,,/Resources/llama.png" Stretch="Fill"/>
 
         <TextBox HorizontalAlignment="Left" Height="23" Margin="10,389,0,5" TextWrapping="Wrap" Text="Time: " VerticalAlignment="Top" Width="42" BorderBrush="{x:Null}"/>
         <TextBox x:Name="time" HorizontalAlignment="Left" Height="23" Margin="52,389,0,5" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40" BorderBrush="{x:Null}" RenderTransformOrigin="0.025,0.572"/>

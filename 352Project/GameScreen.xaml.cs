@@ -55,7 +55,6 @@ namespace _352Project
             t.Tick += new EventHandler(timeSetter);
             t.Interval = TimeSpan.FromSeconds(1);
             t.Start();
-
             //On Spacebar press -> llama jumps
             this.KeyDown += new KeyEventHandler(OnSpaceDownHandler);
 
@@ -77,8 +76,18 @@ namespace _352Project
 
         private void gravityConstant(object sender, EventArgs e)
         {
-            velocity += gravity;
-            llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top + velocity, llama.Margin.Right, llama.Margin.Bottom - velocity);
+          if (llama.Margin.Top > 0)
+          {
+              velocity += gravity;
+
+              llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top + velocity, llama.Margin.Right, llama.Margin.Bottom - velocity);
+          }
+
+          else
+          {
+              velocity = gravity;
+              llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top + 1, llama.Margin.Right, llama.Margin.Bottom - 1);
+          }
         }
 
         private void OnSpaceDownHandler(object sender, KeyEventArgs e)
