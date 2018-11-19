@@ -24,6 +24,9 @@ namespace _352Project
         private double gravity = 0.08;
         private double velocity = 0;
         private double leapDist = 2;
+        //timer variable
+        private int minutes = 0;
+        private int seconds = 0;
         //for movement and generating of fences
         private List<Image> fences = new List<Image>();
         private const double approaching = 0.8;
@@ -47,11 +50,30 @@ namespace _352Project
             genTimer.Tick += new EventHandler(GenerateFence);
             genTimer.Interval = TimeSpan.FromSeconds(5);
             genTimer.Start();
+            //timer for time display
+            DispatcherTimer t = new DispatcherTimer();
+            t.Tick += new EventHandler(timeSetter);
+            t.Interval = TimeSpan.FromSeconds(1);
+            t.Start();
+
             //On Spacebar press -> llama jumps
             this.KeyDown += new KeyEventHandler(OnSpaceDownHandler);
 
 
         }
+
+        //display time
+        private void timeSetter(object sender, EventArgs e)
+        {
+            seconds++;
+            if(seconds == 60)
+            {
+                minutes++;
+                seconds = 0;
+            }
+            time.Text = minutes.ToString()+":"+seconds.ToString();
+        }
+
 
         private void gravityConstant(object sender, EventArgs e)
         {
