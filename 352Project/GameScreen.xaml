@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="GameScreen" Height="450" Width="800">
     <Grid x:Name="Gameshow">
+        <!--Grid dim: 420x793.6-->
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF1E194E" Offset="0.029"/>
@@ -16,7 +17,8 @@
         <!--
         <Image x:Name="llama2" HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="110" Margin="208,185,0,0" Source="pack://siteoforigin:,,,/Resources/llama.png"/>
         -->
-        <Image x:Name="llama" Margin="0,64,739.6,299" Source="pack://application:,,,/Resources/llama.png" Stretch="Fill"/>
+        <!--llama's height/width = 50-->
+        <Image x:Name="llama" Source="pack://application:,,,/Resources/llama.png" Stretch="Fill" Margin="10,10,733.6,360"/>
 
         <TextBox HorizontalAlignment="Left" Height="23" Margin="10,389,0,5" TextWrapping="Wrap" Text="Time: " VerticalAlignment="Top" Width="42" BorderBrush="{x:Null}"/>
         <TextBox x:Name="time" HorizontalAlignment="Left" Height="23" Margin="52,389,0,5" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40" BorderBrush="{x:Null}" RenderTransformOrigin="0.025,0.572"/>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Threading;
 
 namespace _352Project
 {
@@ -23,41 +24,54 @@ namespace _352Project
     {
         //for movement of llama
         private double gravity = 0.08;
-        private double velocity = 0;
+        private double velocity = 0;                    //how quickly llama is dropping
         private double leapDist = 4;
         //timer variable
         private int minutes = 0;
         private int seconds = 0;
         //for movement and generating of fences
         private List<Image> fences = new List<Image>();
-        private const double approaching = 0.8;
+        private const double approaching = 0.8;         //how fast fences move
+        private const int wOfBetween = 80;              //space between fences
         //NOTE: All bottom fences are even # and top fences are odd #
-
+        //for dectection of collision
+        private bool collided = false;
+        //timer for time display
+        DispatcherTimer timeTimer = new DispatcherTimer();
 
         public GameScreen()
         {
             InitializeComponent();
 
+            //timer for detecting Collision of llama and fences
+            //Thread collideWatchThread = new Thread(new ThreadStart(collisionDetect));
+            //collideWatchThread.Start();
+
             //time for constant drop of llama
-            DispatcherTimer timer = new DispatcherTimer();
+            DispatcherTimer gravTimer = new DispatcherTimer();
             //dropping llama
-            timer.Tick += new EventHandler(gravityConstant);
+            gravTimer.Tick += new EventHandler(gravityConstant);
             //moving fences
-            timer.Tick += new EventHandler(fenceMovement);
-            timer.Interval = TimeSpan.FromMilliseconds(0.5);
-            timer.Start();
+            gravTimer.Tick += new EventHandler(fenceMovement);
+            gravTimer.Interval = TimeSpan.FromMilliseconds(0.5);
+            gravTimer.Start();
+            
             //timer of generating of fences
             DispatcherTimer genTimer = new DispatcherTimer();
             genTimer.Tick += new EventHandler(GenerateFence);
             genTimer.Interval = TimeSpan.FromSeconds(3);
             genTimer.Start();
-            //timer for time display
-            DispatcherTimer t = new DispatcherTimer();
-            t.Tick += new EventHandler(timeSetter);
-            t.Interval = TimeSpan.FromSeconds(1);
-            t.Start();
+
+            //setting up timer for time display
+            timeTimer.Tick += new EventHandler(timeSetter);
+            timeTimer.Interval = TimeSpan.FromSeconds(1);
+            timeTimer.Start();
+
+            
+
             //On Spacebar press -> llama jumps
             this.KeyDown += new KeyEventHandler(OnSpaceDownHandler);
+
 
 
         }
@@ -102,6 +116,17 @@ namespace _352Project
                 //velocity -= leapDist;
                 //llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top - 50, llama.Margin.Right, llama.Margin.Bottom + 50);
             }
+            else if( e.Key == Key.P)
+            {
+                if (timeTimer.IsEnabled)
+                {
+                    timeTimer.Stop();
+                }
+                else
+                {
+                    timeTimer.Start();
+                }
+            }
         }
 
         private void GenerateFence(object sender, EventArgs e)
@@ -137,19 +162,20 @@ namespace _352Project
             //Stretch
             createdFence.Stretch = Stretch.Fill;
             //Margins
-                //size need so llama can jump thru with little room
-            double sizeTest = (Gameshow.ActualHeight + llama.ActualHeight+10)/2;
-                //random 
+                //size need so llama can jump thru with little room 
+            double sizeTest = (Gameshow.ActualHeight + llama.ActualHeight+(wOfBetween*2))/2;
+            //random sizes of fences
             Random random = new Random();
-            List<double> fenceSizes = new List<double>(3);
-            double spaceChanger = (random.NextDouble()*((sizeTest-20) - 0) + 0);
-            fenceSizes.Add(sizeTest - spaceChanger);
-            fenceSizes.Add(sizeTest + spaceChanger);
+            double spaceChanger = (-100) + (random.NextDouble() * (100*2)); //between 100 up or down on fence positions
+            double fenceTopLen = sizeTest - spaceChanger;
+            double fenceBottomLen = sizeTest + spaceChanger;
+            //all pipes' width
+            double pipeWidth = 30;
             //Thickness(Left,Top,Right,Bottom)
             //after motion made change left -> Gameshow.Margin.Right, right -> Gameshow.Margin.Right
             if (Top)
             {
-                createdFence.Margin = new Thickness(800, -1, -40, fenceSizes[0]);
+                createdFence.Margin = new Thickness(Gameshow.ActualWidth, -1, -pipeWidth, fenceTopLen);
                 //flip
                 createdFence.RenderTransformOrigin = new Point { X = 0.5, Y = 0.5 };
                 createdFence.RenderTransform = new ScaleTransform() { ScaleY = -1 };
@@ -157,12 +183,14 @@ namespace _352Project
             }
             else
             {
-                createdFence.Margin = new Thickness(800, fenceSizes[1], -40, -1);
+                createdFence.Margin = new Thickness(Gameshow.ActualWidth, fenceBottomLen, -pipeWidth, -1);
             }
         }
 
         private void fenceMovement(object sender, EventArgs e)
         {
+            double pipeWidth = 30;
+
             List<int> remove = new List<int>();
             //moves all fences to left by variable -> approaching
             for(int i=0; i< fences.Count; i++)
@@ -174,6 +202,23 @@ namespace _352Project
                 else
                 {
                     fences[i].Margin = new Thickness(fences[i].Margin.Left - approaching, fences[i].Margin.Top, fences[i].Margin.Right + approaching, fences[i].Margin.Bottom);
+                    //if llama is intersecting with pipe's vertical
+                    if((llama.Margin.Right <= fences[i].Margin.Right+pipeWidth) && (llama.Margin.Left <= fences[i].Margin.Left+pipeWidth))
+                    {
+                        double fenceHeight = 420 - fences[i].Margin.Top - fences[i].Margin.Bottom;
+                        //if top fence
+                        if((fences[i].Margin.Top == (-1)) && llama.Margin.Top <= fences[i].Margin.Top+fenceHeight)
+                        {
+                            collided = true;
+                            timeTimer.Stop();
+                        }
+                        //if bottom fence
+                        else if((fences[i].Margin.Bottom == (-1)) && llama.Margin.Bottom <= fences[i].Margin.Bottom+fenceHeight)
+                        {
+                            collided = true;
+                            timeTimer.Stop();
+                        }
+                    }
                 }
             }
             //removes fence once off-screen
