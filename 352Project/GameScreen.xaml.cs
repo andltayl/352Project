@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using System.Threading;
 
 namespace _352Project
 {
@@ -34,21 +33,17 @@ namespace _352Project
         private const double approaching = 0.8;         //how fast fences move
         private const int wOfBetween = 80;              //space between fences
         //NOTE: All bottom fences are even # and top fences are odd #
-        //for dectection of collision
-        private bool collided = false;
-        //timer for time display
+
+        //timers-- outside so collide stops them
+        DispatcherTimer gravTimer = new DispatcherTimer();
         DispatcherTimer timeTimer = new DispatcherTimer();
+        DispatcherTimer genTimer = new DispatcherTimer();
 
         public GameScreen()
         {
             InitializeComponent();
 
-            //timer for detecting Collision of llama and fences
-            //Thread collideWatchThread = new Thread(new ThreadStart(collisionDetect));
-            //collideWatchThread.Start();
-
             //time for constant drop of llama
-            DispatcherTimer gravTimer = new DispatcherTimer();
             //dropping llama
             gravTimer.Tick += new EventHandler(gravityConstant);
             //moving fences
@@ -57,7 +52,6 @@ namespace _352Project
             gravTimer.Start();
             
             //timer of generating of fences
-            DispatcherTimer genTimer = new DispatcherTimer();
             genTimer.Tick += new EventHandler(GenerateFence);
             genTimer.Interval = TimeSpan.FromSeconds(3);
             genTimer.Start();
@@ -67,13 +61,8 @@ namespace _352Project
             timeTimer.Interval = TimeSpan.FromSeconds(1);
             timeTimer.Start();
 
-            
-
             //On Spacebar press -> llama jumps
             this.KeyDown += new KeyEventHandler(OnSpaceDownHandler);
-
-
-
         }
 
         //display time
@@ -84,6 +73,14 @@ namespace _352Project
             {
                 minutes++;
                 seconds = 0;
+            }
+            if(seconds == 0 && minutes == 0)
+            {
+                time.Text = "0:00";
+            }
+            else if(minutes == 0)
+            {
+                time.Text = "0:" + seconds.ToString();
             }
             time.Text = minutes.ToString()+":"+seconds.ToString();
         }
@@ -120,11 +117,15 @@ namespace _352Project
             {
                 if (timeTimer.IsEnabled)
                 {
+                    gravTimer.Stop();
                     timeTimer.Stop();
+                    genTimer.Stop();
                 }
                 else
                 {
+                    gravTimer.Start();
                     timeTimer.Start();
+                    genTimer.Start();
                 }
             }
         }
@@ -209,14 +210,16 @@ namespace _352Project
                         //if top fence
                         if((fences[i].Margin.Top == (-1)) && llama.Margin.Top <= fences[i].Margin.Top+fenceHeight)
                         {
-                            collided = true;
+                            gravTimer.Stop();
                             timeTimer.Stop();
+                            genTimer.Stop();
                         }
                         //if bottom fence
                         else if((fences[i].Margin.Bottom == (-1)) && llama.Margin.Bottom <= fences[i].Margin.Bottom+fenceHeight)
                         {
-                            collided = true;
+                            gravTimer.Stop();
                             timeTimer.Stop();
+                            genTimer.Stop();
                         }
                     }
                 }
