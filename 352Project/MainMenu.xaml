@@ -6,8 +6,6 @@
         xmlns:local="clr-namespace:_352Project"
         mc:Ignorable="d"
         Title="StartMenu" Height="450" Width="800">
-
-
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">

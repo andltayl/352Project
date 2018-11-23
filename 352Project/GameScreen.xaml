@@ -14,14 +14,9 @@
                 <GradientStop Color="#FF335EA4" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <!--
-        <Image x:Name="llama2" HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="110" Margin="208,185,0,0" Source="pack://siteoforigin:,,,/Resources/llama.png"/>
-        -->
-        <!--llama's height/width = 50-->
+        <!--llama's dem: 50x50-->
         <Image x:Name="llama" Source="pack://application:,,,/Resources/llama.png" Stretch="Fill" Margin="10,10,733.6,360"/>
-
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,389,0,5" TextWrapping="Wrap" Text="Time: " VerticalAlignment="Top" Width="42" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="time" HorizontalAlignment="Left" Height="23" Margin="52,389,0,5" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40" BorderBrush="{x:Null}" RenderTransformOrigin="0.025,0.572"/>
-
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="707,396,0,0" TextWrapping="Wrap" Text="Time: " VerticalAlignment="Top" Width="42" BorderBrush="{x:Null}"/>
+        <TextBlock x:Name="time" HorizontalAlignment="Left" Margin="754,397,-0.4,0" TextAlignment="Center" TextWrapping="Wrap" Text="0:00" VerticalAlignment="Top" Background="White" Height="23" Width="40"/>
     </Grid>
 </Window>

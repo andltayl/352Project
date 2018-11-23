@@ -35,9 +35,9 @@ namespace _352Project
         //NOTE: All bottom fences are even # and top fences are odd #
 
         //timers-- outside so collide stops them
-        DispatcherTimer gravTimer = new DispatcherTimer();
-        DispatcherTimer timeTimer = new DispatcherTimer();
-        DispatcherTimer genTimer = new DispatcherTimer();
+        private DispatcherTimer gravTimer = new DispatcherTimer();
+        private DispatcherTimer timeTimer = new DispatcherTimer();
+        private DispatcherTimer genTimer = new DispatcherTimer();
 
         public GameScreen()
         {
@@ -85,7 +85,6 @@ namespace _352Project
             time.Text = minutes.ToString()+":"+seconds.ToString();
         }
 
-
         private void gravityConstant(object sender, EventArgs e)
         {
           if (llama.Margin.Top > 0)
@@ -94,7 +93,6 @@ namespace _352Project
 
               llama.Margin = new Thickness(llama.Margin.Left, llama.Margin.Top + velocity, llama.Margin.Right, llama.Margin.Bottom - velocity);
           }
-
           else
           {
               velocity = gravity;
@@ -139,7 +137,6 @@ namespace _352Project
             genContent(fences[fences.Count - 1], false);
             //Adding to Grid
             Gameshow.Children.Add(fences[fences.Count - 1]);
-
             //creating new top fence control
             fences.Add(new Image());
             //Bottom Fence
@@ -191,7 +188,6 @@ namespace _352Project
         private void fenceMovement(object sender, EventArgs e)
         {
             double pipeWidth = 30;
-
             List<int> remove = new List<int>();
             //moves all fences to left by variable -> approaching
             for(int i=0; i< fences.Count; i++)
@@ -227,7 +223,6 @@ namespace _352Project
             //removes fence once off-screen
             foreach (int i in remove)
             {
-
                 if(i <= fences.Count)
                 {
                     Gameshow.Children.Remove(fences[i]);
