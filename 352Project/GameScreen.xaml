@@ -5,18 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_352Project"
         mc:Ignorable="d"
-        Title="GameScreen" Height="450" Width="800">
-    <Grid x:Name="Gameshow">
-        <!--Grid dim: 420x793.6-->
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF1E194E" Offset="0.029"/>
-                <GradientStop Color="#FF335EA4" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <!--llama's dem: 50x50-->
-        <Image x:Name="llama" Source="pack://application:,,,/Resources/llama.png" Stretch="Fill" Margin="10,10,733.6,360"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="707,396,0,0" TextWrapping="Wrap" Text="Time: " VerticalAlignment="Top" Width="42" BorderBrush="{x:Null}"/>
-        <TextBlock x:Name="time" HorizontalAlignment="Left" Margin="754,397,-0.4,0" TextAlignment="Center" TextWrapping="Wrap" Text="0:00" VerticalAlignment="Top" Background="White" Height="23" Width="40"/>
+        Title="GameScreen" Height="500" Width="800">
+    <Grid>
+        <Grid x:Name="Gameshow" Height="420" Width="793.6" Margin="0,0,-0.4,50.4">
+            <!--Grid dim: 420x793.6-->
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1E194E" Offset="0.029"/>
+                    <GradientStop Color="#FF335EA4" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <!--llama's dem: 50x50-->
+            <Image x:Name="llama" Source="pack://application:,,,/Resources/llama.png" Stretch="Fill" Margin="10,10,733.6,360"/>
+        </Grid>
+        <Grid x:Name="ScoreTimeGrid" Background="ForestGreen" Margin="0,412,-0.4,-9.6">
+            <TextBlock HorizontalAlignment="Left" Height="23" Margin="672,-1,0,0" TextWrapping="Wrap" Text="Time: " VerticalAlignment="Top" Width="52" FontSize="16" FontWeight="Bold" FontFamily="Showcard Gothic"/>
+            <TextBlock x:Name="time" HorizontalAlignment="Left" Margin="724,0,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="0:00" VerticalAlignment="Top" Background="White" Height="22" Width="60" FontSize="16" FontWeight="Bold" FontFamily="Showcard Gothic"/>
+        </Grid>
     </Grid>
+
 </Window>
