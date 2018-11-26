@@ -187,6 +187,10 @@ namespace _352Project
 
         private void fenceMovement(object sender, EventArgs e)
         {
+            //score half-adder
+            bool sum = false;
+            int carry = 0;
+
             double pipeWidth = 30;
             List<int> remove = new List<int>();
             //moves all fences to left by variable -> approaching
@@ -216,6 +220,16 @@ namespace _352Project
                             gravTimer.Stop();
                             timeTimer.Stop();
                             genTimer.Stop();
+                        }
+                        //if not hit update scoreBoard
+                        else
+                        {
+                            sum = !sum;
+                            if(!sum)
+                            {
+                                carry++;
+                                ScoreBoard.Text = carry.ToString();
+                            }
                         }
                     }
                 }
