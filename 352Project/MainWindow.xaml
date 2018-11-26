@@ -6,8 +6,21 @@
         xmlns:local="clr-namespace:_352Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="#FFC82929">
-        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="243,222,0,0" Source="C:\Users\garre\Source\Repos\352Project\Game_Screen.png"/>
-
+    <Grid x:Name="Gameshow" Background="#FFC82929">
+        <!--
+        <Image x:Name="llama2" HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="110" Margin="208,185,0,0" Source="pack://siteoforigin:,,,/Resources/llama.png"/>
+        -->
+        <Image x:Name="llama" Margin="87,62,652.6,301" Source="pack://application:,,,/Resources/llama.png" Stretch="Fill"/>
+        <Image x:Name="fence" Margin="595,258,168.6,-19" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill"/>
+        <Image x:Name="fence_Copy" Margin="595,-31,168.6,269" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </Window>
