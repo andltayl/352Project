@@ -30,7 +30,7 @@ namespace _352Project
         private int seconds = 0;
         //for movement and generating of fences
         private List<Image> fences = new List<Image>();
-        private const double approaching = 0.8;         //how fast fences move
+        private const double approaching = 3;         //how fast fences move
         private const int wOfBetween = 80;              //space between fences
         //NOTE: All bottom fences are even # and top fences are odd #
 
@@ -53,7 +53,7 @@ namespace _352Project
             
             //timer of generating of fences
             genTimer.Tick += new EventHandler(GenerateFence);
-            genTimer.Interval = TimeSpan.FromSeconds(3);
+            genTimer.Interval = TimeSpan.FromSeconds(1);
             genTimer.Start();
 
             //setting up timer for time display

@@ -74,8 +74,6 @@ namespace _352Project
                     difficultyNum = 0;
                     break;
             }
-
-      
         }
 
         //exit program via quit button
