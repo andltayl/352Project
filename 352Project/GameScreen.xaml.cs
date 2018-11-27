@@ -29,9 +29,9 @@ namespace _352Project
         private int minutes = 0;
         private int seconds = 0;
         //for movement and generating of fences
-        private const double approaching = 3;         //how fast fences move
+        private const double approaching = 0.8;         //how fast fences move
         private const int wOfBetween = 80;              //space between fences
-        private const int totalSum = 100;
+        private const int totalSum = 200;
         private Fence allFences = new Fence(wOfBetween, approaching, totalSum);
         //NOTE: All bottom fences are even # and top fences are odd #
         //timers-- outside so collide stops them
@@ -53,7 +53,7 @@ namespace _352Project
             
             //timer of generating of fences
             genTimer.Tick += new EventHandler(GenerateFence);
-            genTimer.Interval = TimeSpan.FromSeconds(1);
+            genTimer.Interval = TimeSpan.FromSeconds(5);
             genTimer.Start();
 
             //setting up timer for time display
