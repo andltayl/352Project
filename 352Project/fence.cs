@@ -18,29 +18,15 @@ namespace _352Project
         public List<Image> fences = new List<Image>();
         public int score = 0;
         //----------------------------------------PROTECTED----------------------------------------//
-        //how fast fences move
-        protected double approaching;   //approaching demo = 3
-        //space between fences
-        protected int wOfBetween;       //wOfBetween demo = 80
-        //points given between difficulty
-        protected int sumTotal;   //sumTotal demo = 100
-        
+        protected double approaching;   //how fast fences move
+        protected int wOfBetween;       //space between fences
+        protected int sumTotal;         //points given between difficulty
         //----------------------------------------PRIVATE----------------------------------------//
         private double pipeWidth = 30;
         private int sum = 0;
-
         //----------------------------------------ACCESSORS----------------------------------------//
-        //to return last fence to be edited
-        public Image LastFence
-        {
-            get { return fences[fences.Count - 1];  }
-        }
-        //to return approaching
-        public double Approaching
-        {
-            get { return approaching; }
-        }
-
+        public Image LastFence { get { return fences[fences.Count - 1]; } }     //to return last fence to be edited
+        public double Approaching { get { return approaching; } }               //to return approaching
         //----------------------------------------FUNCTIONS----------------------------------------//
         //Constructors
         public Fence(int disBetween, double movement, int pointsNeededToScore)
@@ -50,7 +36,6 @@ namespace _352Project
             wOfBetween = disBetween;
             sumTotal = pointsNeededToScore;
         }
-
         //Make a fence and add to the list
         public void genFence(bool Top, Grid Gameshow, Image llama)
         {
@@ -82,18 +67,11 @@ namespace _352Project
                 fences[fences.Count - 1].RenderTransform = new ScaleTransform() { ScaleY = -1 };
                 fences[fences.Count - 1].UpdateLayout();
             }
-            else
-            {
-                fences[fences.Count - 1].Margin = new Thickness(Gameshow.ActualWidth, fenceBottomLen, -pipeWidth, -1);
-            }
+            else { fences[fences.Count - 1].Margin = new Thickness(Gameshow.ActualWidth, fenceBottomLen, -pipeWidth, -1); }
         }
-        
         //Move a certain fence 
-        public void moveFence(int i)
-        {
-            fences[i].Margin = new Thickness(fences[i].Margin.Left-approaching, fences[i].Margin.Top, fences[i].Margin.Right + approaching, fences[i].Margin.Bottom);
-        }
-
+        public void moveFence(int i) { fences[i].Margin = new Thickness(fences[i].Margin.Left-approaching, fences[i].Margin.Top, fences[i].Margin.Right + approaching, fences[i].Margin.Bottom); }
+        //true if collided, false if fine
         public bool CollisionDetect(Image llama, int i)
         {
             //if llama is intersecting with pipe's vertical

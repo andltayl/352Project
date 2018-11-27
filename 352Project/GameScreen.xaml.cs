@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace _352Project
@@ -28,10 +19,11 @@ namespace _352Project
         //timer variable
         private int minutes = 0;
         private int seconds = 0;
-        //for movement and generating of fences
-        private const double approaching = 0.8;         //how fast fences move
-        private const int wOfBetween = 80;              //space between fences
-        private const int totalSum = 200;
+        //Difficulty settings
+        private const double approaching = 1;   //how fast fences move              demo = 1
+        private const int wOfBetween = 80;      //space between fences              demo = 80
+        private const int totalSum = 160;         //Points need to score 1 point    demo = 160
+        private const int distBetweenFence = 5; //Distance between each fence       demo = 5
         private Fence allFences = new Fence(wOfBetween, approaching, totalSum);
         //NOTE: All bottom fences are even # and top fences are odd #
         //timers-- outside so collide stops them
@@ -53,7 +45,7 @@ namespace _352Project
             
             //timer of generating of fences
             genTimer.Tick += new EventHandler(GenerateFence);
-            genTimer.Interval = TimeSpan.FromSeconds(5);
+            genTimer.Interval = TimeSpan.FromSeconds(distBetweenFence);
             genTimer.Start();
 
             //setting up timer for time display
