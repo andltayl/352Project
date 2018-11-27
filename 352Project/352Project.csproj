@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="fence.cs" />
     <Compile Include="TrueMain.cs" />
     <Page Include="MainMenu.xaml">
       <SubType>Designer</SubType>
