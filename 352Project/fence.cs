@@ -17,6 +17,7 @@ namespace _352Project
         //holds all fences
         public List<Image> fences = new List<Image>();
         public int score = 0;
+        public string resourceImgDir = "pack://application:,,,/Resources/";
         //----------------------------------------PROTECTED----------------------------------------//
         protected double approaching;   //how fast fences move
         protected int wOfBetween;       //space between fences
@@ -39,12 +40,14 @@ namespace _352Project
         //Make a fence and add to the list
         public void genFence(bool Top, Grid Gameshow, Image llama)
         {
+
             fences.Add(new Image());
             //Source
             BitmapImage fencePic = new BitmapImage();
             fencePic.BeginInit();
-            //fencePic.UriSource = new Uri("G:/Users/Soul/Documents/GitHub/352Project/tempFence.png");
-            fencePic.UriSource = new Uri("pack://application:,,,/Resources/tempFence.png");
+            //
+            string tempFenceDir = resourceImgDir + "tempFence.png";
+            fencePic.UriSource = new Uri(tempFenceDir);
             fencePic.EndInit();
             fences[fences.Count - 1].Source = fencePic;
             //Stretch
