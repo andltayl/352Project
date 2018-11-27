@@ -22,9 +22,9 @@ namespace _352Project
     public partial class GameScreen : Window
     {
         //for movement of llama
-        private double gravity = 0.08;
+        private double gravity = 0.1;
         private double velocity = 0;                    //how quickly llama is dropping
-        private double leapDist = 4;
+        private double leapDist = 3.5;
         //timer variable
         private int minutes = 0;
         private int seconds = 0;
@@ -32,7 +32,7 @@ namespace _352Project
 
         //for movement and generating of fences
         private List<Image> fences = new List<Image>();
-        private const double approaching = 0.8;         //how fast fences move
+        private const double approaching = 1.5;         //how fast fences move
         private const int wOfBetween = 80;              //space between fences
         //NOTE: All bottom fences are even # and top fences are odd #
 

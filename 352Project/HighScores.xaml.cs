@@ -145,7 +145,7 @@ namespace _352Project
             outFile = new System.IO.StreamWriter("HighScores.txt");
 
             //shift items in array 
-            for(int i = MAX_SIZE -1; i > position+1; i--)
+            for(int i = MAX_SIZE -1; i > position; i--)
             {
                 Scores[i] = Scores[i - 1];
                 Names[i] = Names[i - 1];
