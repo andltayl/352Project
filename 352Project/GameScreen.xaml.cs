@@ -28,6 +28,8 @@ namespace _352Project
         //timer variable
         private int minutes = 0;
         private int seconds = 0;
+        int carry = 0;
+
         //for movement and generating of fences
         private List<Image> fences = new List<Image>();
         private const double approaching = 0.8;         //how fast fences move
@@ -189,7 +191,7 @@ namespace _352Project
         {
             //score half-adder
             bool sum = false;
-            int carry = 0;
+          
 
             double pipeWidth = 30;
             List<int> remove = new List<int>();
@@ -203,6 +205,7 @@ namespace _352Project
                 else
                 {
                     fences[i].Margin = new Thickness(fences[i].Margin.Left - approaching, fences[i].Margin.Top, fences[i].Margin.Right + approaching, fences[i].Margin.Bottom);
+                    
                     //if llama is intersecting with pipe's vertical
                     if((llama.Margin.Right <= fences[i].Margin.Right+pipeWidth) && (llama.Margin.Left <= fences[i].Margin.Left+pipeWidth))
                     {
@@ -213,6 +216,7 @@ namespace _352Project
                             gravTimer.Stop();
                             timeTimer.Stop();
                             genTimer.Stop();
+                            GameOver(carry);
                         }
                         //if bottom fence
                         else if((fences[i].Margin.Bottom == (-1)) && llama.Margin.Bottom <= fences[i].Margin.Bottom+fenceHeight)
@@ -220,6 +224,7 @@ namespace _352Project
                             gravTimer.Stop();
                             timeTimer.Stop();
                             genTimer.Stop();
+                            GameOver(carry);
                         }
                         //if not hit update scoreBoard
                         else
@@ -228,7 +233,7 @@ namespace _352Project
                             if(!sum)
                             {
                                 carry++;
-                                ScoreBoard.Text = carry.ToString();
+                                ScoreBoard.Text = (carry).ToString();
                             }
                         }
                     }
@@ -242,6 +247,14 @@ namespace _352Project
                     Gameshow.Children.Remove(fences[i]);
                 }
             }
+        }
+        //transition to High Scores screen
+        void GameOver(int carry)
+        {
+            MessageBox.Show("GAME OVER");
+            HighScores h = new HighScores(carry);
+            h.Show();
+            this.Close();
         }
     }
 }
