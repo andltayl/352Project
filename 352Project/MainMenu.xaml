@@ -57,8 +57,7 @@
             </TextBlock.Effect>
         </TextBlock>
 
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="184" Margin="30,245,0,-5.333" Stroke="Black" VerticalAlignment="Top" Width="34"/>
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="118" Margin="724,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="33"/>
+        
 
         <Rectangle Fill="#FF1F1F7E" HorizontalAlignment="Left" Height="326" Margin="500,43,0,0" Stroke="Black" VerticalAlignment="Top" Width="257">
             <Rectangle.Effect>

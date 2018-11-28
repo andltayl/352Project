@@ -25,11 +25,14 @@ namespace _352Project
         bool up = false;            //direction llama should move
         int llamaHighPoint = 43;    //starting position of llama (top)
         int llamaLowPoint = 90;     //lowest position for llama path
+
         public MainMenu()
         {
           
             InitializeComponent();
             InitializeComponent();
+
+            //timer for llama movement
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(animateLlama);
             timer.Interval = TimeSpan.FromMilliseconds(0.5);
@@ -66,11 +69,11 @@ namespace _352Project
             difficultyNum++;
 
             switch (difficultyNum) {
-                case 1: difficultyButton.Content = "Easy";
+                case 1: difficultyButton.Content = "Difficulty: Easy";
                     break;
-                case 2: difficultyButton.Content = "Normal";
+                case 2: difficultyButton.Content = "Difficulty: Normal";
                     break;
-                default: difficultyButton.Content = "Hard";
+                default: difficultyButton.Content = "Difficulty: Hard";
                     difficultyNum = 0;
                     break;
             }
