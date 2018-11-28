@@ -23,10 +23,10 @@ namespace _352Project
     {
         const int MAX_SIZE = 10;
 
-        
+
         private int[] Scores = new int[MAX_SIZE];
         private string[] Names = new string[MAX_SIZE];
-        
+
         //FileStream highScores;
         System.IO.StreamReader file;
         System.IO.StreamWriter outFile;
@@ -50,7 +50,7 @@ namespace _352Project
             // highScores = new FileStream("HighScores.txt", FileMode.Open, FileAccess.ReadWrite);
             file = new System.IO.StreamReader("HighScores.txt");
 
-           
+
 
             //print latest score
             yourScore.Text = yourScore.Text + _score.ToString();
@@ -62,7 +62,7 @@ namespace _352Project
 
             file.Close();
             //add high score to list
-            if(addToList == true)
+            if (addToList == true)
             {
                 addScore();
 
@@ -76,7 +76,7 @@ namespace _352Project
             {
                 //split name from score
                 string[] Info = line.Split(' ');
-                
+
 
                 int c = 0;  //counter that dictates name or score
                 int i = 0;  //counter for Names[] and Scores[]
@@ -93,7 +93,7 @@ namespace _352Project
                     {
                         ScoreListScores.Text = ScoreListScores.Text + info + "\n";
                         Scores[i] = Convert.ToInt32(info);
-                        
+
 
                         //if player makes it on list
                         if (score > Scores[i] && addToList == false)
@@ -105,8 +105,8 @@ namespace _352Project
                     }
 
                     c++;
-                    if (c > MAX_SIZE-1)
-                       return;
+                    if (c > MAX_SIZE - 1)
+                        return;
                 }
             }
         }
@@ -145,7 +145,7 @@ namespace _352Project
             outFile = new System.IO.StreamWriter("HighScores.txt");
 
             //shift items in array 
-            for(int i = MAX_SIZE -1; i > position+1; i--)
+            for (int i = MAX_SIZE - 1; i > position; i--)
             {
                 Scores[i] = Scores[i - 1];
                 Names[i] = Names[i - 1];
@@ -160,7 +160,7 @@ namespace _352Project
             ScoreListNames.Text = " ";
             ScoreListScores.Text = " ";
 
-            for(int i = 0; i < MAX_SIZE; i++)
+            for (int i = 0; i < MAX_SIZE; i++)
             {
                 //print new list to screen
                 ScoreListNames.Text = ScoreListNames.Text + Names[i] + "\n";
@@ -174,3 +174,4 @@ namespace _352Project
         }
     }
 }
+
