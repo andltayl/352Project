@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:_352Project"
         mc:Ignorable="d"
         Title="GameScreen" Height="500" Width="800">
     <Grid>
@@ -25,5 +24,4 @@
             <TextBlock x:Name="ScoreBoard" HorizontalAlignment="Left" Height="23" TextAlignment="Center" Margin="65,-1,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="52" FontSize="16" FontWeight="Bold" FontFamily="Showcard Gothic"/>
         </Grid>
     </Grid>
-
 </Window>

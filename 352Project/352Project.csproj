@@ -59,9 +59,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+
     <Compile Include="HighScores.xaml.cs">
       <DependentUpon>HighScores.xaml</DependentUpon>
     </Compile>
+    <Compile Include="fence.cs" />
+
     <Compile Include="TrueMain.cs" />
     <Page Include="HighScores.xaml">
       <SubType>Designer</SubType>
