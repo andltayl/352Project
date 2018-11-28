@@ -69,7 +69,16 @@ namespace _352Project
             //print high scores
             getScores();
 
+            //if score is -1, then user comes from main menu
+            if (score == -1)
+            {
+                GameOverMessage.Text = "Have fun and good luck!";
+                yourScore.Visibility = Visibility.Hidden;
+                RetryButton.Visibility = Visibility.Hidden;
+            }
+
             file.Close();
+
             //add high score to list
             if (addToList == true)
             {

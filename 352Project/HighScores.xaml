@@ -7,22 +7,46 @@
         mc:Ignorable="d"
         Title="HighScores" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF0F2E63"/>
+                <GradientStop Color="#FF315688" Offset="1"/>
+                <GradientStop Color="#FF2B7D9B" Offset="0.957"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="314" Margin="383,38,0,0" Stroke="Black" VerticalAlignment="Top" Width="376"/>
 
         <!--General Info Text-->
-        <Label Name ="ScreenHeader" Content="High Scores" Height="74" Margin="354,38,143,0" VerticalAlignment="Top" Width="299" FontSize="48"/>
-        <TextBlock Name ="yourScore" HorizontalAlignment="Left" Margin="42,99,0,0" TextWrapping="Wrap" Text="Your Score: " VerticalAlignment="Top" Height="13" Width="89"/>
-        <TextBlock x:Name="ScoreListNames" HorizontalAlignment="Left" Margin="354,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="260" Width="123"/>
-        <TextBlock x:Name="ScoreListScores" HorizontalAlignment="Left" Margin="590,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="260" Width="123"/>
+        <Label x:Name ="ScreenHeader" Content="High Scores" Height="74" Margin="437,33,60,0" VerticalAlignment="Top" Width="299" FontSize="48" Foreground="#FFE7B144" FontWeight="Bold">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
+        <TextBlock x:Name ="yourScore" HorizontalAlignment="Left" Margin="112,112,0,0" TextWrapping="Wrap" Text="Your Score: " VerticalAlignment="Top" Height="19" Width="89" Foreground="#FFFDF9F9"/>
+        <TextBlock x:Name="ScoreListNames" HorizontalAlignment="Left" Margin="457,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="260" Width="123" FontSize="16"/>
+        <TextBlock x:Name="ScoreListScores" HorizontalAlignment="Left" Margin="613,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="260" Width="123" FontSize="16"/>
 
         <!--Buttons to Exit-->
-        <Button Content="Retry" HorizontalAlignment="Left" Margin="131,382,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="Main Menu" HorizontalAlignment="Left" Margin="578,382,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Name ="RetryButton" Content="Retry" HorizontalAlignment="Left" Margin="126,292,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="-0.547,-2.65"/>
+        <Button Content="Main Menu" HorizontalAlignment="Left" Margin="126,332,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
         <!--High Score Message-->
-        <TextBlock Name="HighScoreMessage" HorizontalAlignment="Left" Margin="42,136,0,0" TextWrapping="Wrap" Text="New High Score!" VerticalAlignment="Top" Height="29" Visibility="Hidden"/>
-        <TextBlock Name="EnterName" HorizontalAlignment="Left" Margin="42,187,0,0" TextWrapping="Wrap" Text="Enter your name:" VerticalAlignment="Top" Visibility="Hidden"/>
-        <TextBox Name="NameInput" HorizontalAlignment="Left" Height="16" Margin="42,208,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="113" Visibility="Hidden"/>
-        <Button Name ="InputButton" Content="OK" HorizontalAlignment="Left" Margin="42,265,0,0" VerticalAlignment="Top" Width="75" Click="InputButton_Click" Visibility="Hidden"/>
+        <TextBlock x:Name="HighScoreMessage" HorizontalAlignment="Left" Margin="112,153,0,0" TextWrapping="Wrap" Text="New High Score!" VerticalAlignment="Top" Height="29" Foreground="#FFDF1515" FontWeight="Bold" Visibility="Hidden">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock x:Name="EnterName" HorizontalAlignment="Left" Margin="56,208,0,0" TextWrapping="Wrap" Text="Enter your name:" VerticalAlignment="Top" Foreground="#FFFFFBFB" Visibility="Hidden"/>
+        <TextBox x:Name="NameInput" HorizontalAlignment="Left" Height="16" Margin="172,208,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="113" Visibility="Hidden"/>
+        <Button x:Name ="InputButton" Content="OK" HorizontalAlignment="Left" Margin="126,246,0,0" VerticalAlignment="Top" Width="75" Click="InputButton_Click" Visibility="Hidden"/>
+        <TextBlock Name ="GameOverMessage" HorizontalAlignment="Left" Margin="74,73,0,0" TextWrapping="Wrap" Text="Better luck next time..." VerticalAlignment="Top" Foreground="#FFFFFBFB" FontSize="20" FontStyle="Italic">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="219" Margin="405,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" TextAlignment="Center" FontSize="16"><Run Text="1"/><LineBreak/><Run Text="2"/><LineBreak/><Run Text="3"/><LineBreak/><Run Text="4"/><LineBreak/><Run Text="5"/><LineBreak/><Run Text="6"/><LineBreak/><Run Text="7"/><LineBreak/><Run Text="8"/><LineBreak/><Run Text="9"/><LineBreak/><Run Text="10"/></TextBlock>
 
     </Grid>
 </Window>
