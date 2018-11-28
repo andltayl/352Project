@@ -50,6 +50,7 @@ namespace _352Project
             // highScores = new FileStream("HighScores.txt", FileMode.Open, FileAccess.ReadWrite);
             file = new System.IO.StreamReader("HighScores.txt");
 
+            //TODO: if file doesn't exist, make a new one:
 
 
             //print latest score
@@ -72,27 +73,28 @@ namespace _352Project
 
         private void getScores()
         {
+
+            int i = 0;  //counter for Names[] and Scores[]
+
             while ((line = file.ReadLine()) != null)
             {
                 //split name from score
                 string[] Info = line.Split(' ');
 
-
-                int c = 0;  //counter that dictates name or score
-                int i = 0;  //counter for Names[] and Scores[]
-
                 //print and store each item in file
-                foreach (string info in Info)
+                for (int k = 0; k < Info.Length; k++)
                 {
-                    if (c % 2 == 0)
+                    if (k % 2 == 0)
                     {
-                        ScoreListNames.Text = ScoreListNames.Text + info + "\n";
-                        Names[i] = info;
+                        Names[i] = Info[k];
+                        ScoreListNames.Text = ScoreListNames.Text + Names[i] + "\n";
+
                     }
                     else
                     {
-                        ScoreListScores.Text = ScoreListScores.Text + info + "\n";
-                        Scores[i] = Convert.ToInt32(info);
+                        int t = Convert.ToInt32(Info[k]);
+                        Scores[i] = t;
+                        ScoreListScores.Text = ScoreListScores.Text + Scores[i].ToString() + "\n";
 
 
                         //if player makes it on list
@@ -104,9 +106,7 @@ namespace _352Project
                         i++;
                     }
 
-                    c++;
-                    if (c > MAX_SIZE - 1)
-                        return;
+
                 }
             }
         }
@@ -157,8 +157,8 @@ namespace _352Project
             Names[position] = newName;
 
             //save changes
-            ScoreListNames.Text = " ";
-            ScoreListScores.Text = " ";
+            ScoreListNames.Text = null;
+            ScoreListScores.Text = null;
 
             for (int i = 0; i < MAX_SIZE; i++)
             {
@@ -174,4 +174,3 @@ namespace _352Project
         }
     }
 }
-
