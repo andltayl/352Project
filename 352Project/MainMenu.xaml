@@ -3,9 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:_352Project"
         mc:Ignorable="d"
-        Title="StartMenu" Height="450" Width="800">
+        Title="MainMenu" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -14,17 +13,18 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="108" Margin="170,316,0,-0.333" Stroke="Black" VerticalAlignment="Top" Width="33"/>
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="212" Margin="170,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="33"/>
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="184" Margin="302,240,0,-0.333" Stroke="Black" VerticalAlignment="Top" Width="33"/>
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="118" Margin="302,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="33"/>
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="147" Margin="440,282,0,-5.333" Stroke="Black" VerticalAlignment="Top" Width="33"/>
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="185" Margin="440,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="33"/>
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="108" Margin="583,316,0,-0.333" Stroke="Black" VerticalAlignment="Top" Width="33"/>
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="212" Margin="583,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="33"/>
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="184" Margin="724,240,0,-0.333" Stroke="Black" VerticalAlignment="Top" Width="33"/>
-        <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="118" Margin="31,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="33"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="170,316,0,-4" VerticalAlignment="Top" Width="33" Height="108"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="302,240,0,-4" VerticalAlignment="Top" Width="33" Height="184"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="170,0,0,208" Width="33" RenderTransformOrigin="0.617,-0.874"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="302,0,0,0" VerticalAlignment="Top" Width="33" Height="118"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="440,282,0,-4" VerticalAlignment="Top" Width="33" Height="142"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="31,0,0,0" VerticalAlignment="Top" Width="33" Height="118"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="31,245,0,-4" VerticalAlignment="Top" Width="33" Height="179"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="724,0,0,0" VerticalAlignment="Top" Width="33" Height="118"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="724,245,0,-4" VerticalAlignment="Top" Width="33" Height="179"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="583,0,0,0" VerticalAlignment="Top" Width="33" Height="198"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="583,316,0,-4" VerticalAlignment="Top" Width="33" Height="108"/>
+        <Image HorizontalAlignment="Left" Source="pack://application:,,,/Resources/tempFence.png" Stretch="Fill" Margin="440,0,0,0" VerticalAlignment="Top" Width="33" Height="185"/>
 
         <Button x:Name="difficultyButton" Content="Difficulty" HorizontalAlignment="Left" Margin="64,245,0,0" VerticalAlignment="Top" Width="108" Height="28" Background="#FFFFFEFE" Click ="difficultySelect"/>
         <Button Content="High Scores" HorizontalAlignment="Left" Margin="62,296,0,0" VerticalAlignment="Top" Width="108" Height="30" Background="White" Click="Button_Click"/>
@@ -44,29 +44,33 @@
             </Image.Effect>
         </Image>
 
-
-
         <TextBlock x:Name="Title" HorizontalAlignment="Left" Height="66" Margin="31,43,0,0" TextWrapping="Wrap" Text="Leapin'" VerticalAlignment="Top" Width="188" Background="{x:Null}" Foreground="#FFFBF4F4" FontWeight="Bold" FontSize="48">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
+
         <TextBlock x:Name="Title_Copy" HorizontalAlignment="Left" Height="66" Margin="31,132,0,0" TextWrapping="Wrap" Text="Llamas" VerticalAlignment="Top" Width="188" Background="{x:Null}" Foreground="#FFFBF4F4" FontWeight="Bold" FontSize="48" >
+
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
+
         <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="184" Margin="30,245,0,-5.333" Stroke="Black" VerticalAlignment="Top" Width="34"/>
         <Rectangle Fill="#FF4B9924" HorizontalAlignment="Left" Height="118" Margin="724,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="33"/>
+
         <Rectangle Fill="#FF1F1F7E" HorizontalAlignment="Left" Height="326" Margin="500,43,0,0" Stroke="Black" VerticalAlignment="Top" Width="257">
             <Rectangle.Effect>
                 <DropShadowEffect/>
             </Rectangle.Effect>
         </Rectangle>
-        <TextBlock HorizontalAlignment="Left" Height="60" Margin="560,58,0,0" TextWrapping="Wrap" Text="How to Play" VerticalAlignment="Top" Width="136" Background="{x:Null}" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
-        <TextBlock HorizontalAlignment="Left" Height="48" Margin="560,198,0,0" TextWrapping="Wrap" Text="Press Space to Jump!" VerticalAlignment="Top" Width="164" Background="{x:Null}" Foreground="#FFFDFDFD" FontSize="16"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="34" Margin="560,58,0,0" TextWrapping="Wrap" Text="How to Play" VerticalAlignment="Top" Width="136" Background="{x:Null}" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
+        <TextBlock HorizontalAlignment="Left" Height="48" Margin="547,166,0,0" TextWrapping="Wrap" Text="Jump&#x9;- Spacebar&#xA;Pause&#x9;- P" TextAlignment="Justify" VerticalAlignment="Top" Width="149" Background="{x:Null}" Foreground="#FFFDFDFD" FontSize="16"/>
         <Button x:Name="startButton" Content="Start" HorizontalAlignment="Left" Margin="602,291,0,0" VerticalAlignment="Top" Width="75" Background="#FFFDFDFD" Click="startButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="560,118,0,0" TextWrapping="Wrap" Text="Jump through pipes! Don't hit one or it's game over!" VerticalAlignment="Top" Height="67" Width="136" Foreground="White" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="507,97,0,0" TextWrapping="Wrap" Text="Jump through pipes! Don't hit one or it's game over!" TextAlignment="Center" VerticalAlignment="Top" Height="67" Width="244" Foreground="White"/>
+
 
     </Grid>
 </Window>
