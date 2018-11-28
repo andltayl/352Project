@@ -47,11 +47,19 @@ namespace _352Project
                 Names[i] = "???";
             }
 
-            // highScores = new FileStream("HighScores.txt", FileMode.Open, FileAccess.ReadWrite);
-            file = new System.IO.StreamReader("HighScores.txt");
+            //check if file exists
+            if (File.Exists("HighScores.txt"))
+                file = new System.IO.StreamReader("HighScores.txt");
 
-            //TODO: if file doesn't exist, make a new one:
-
+            //if file doesn't exist, make a new one:
+            else
+            {
+                //File.Create("HighScores.txt");
+                System.IO.StreamWriter tw = new StreamWriter("HighScores.txt");
+                for (int i = 0; i < MAX_SIZE; i++)
+                    tw.WriteLine("??? 0");
+                tw.Close();
+            }
 
             //print latest score
             yourScore.Text = yourScore.Text + _score.ToString();
@@ -73,7 +81,7 @@ namespace _352Project
 
         private void getScores()
         {
-
+            file = new System.IO.StreamReader("HighScores.txt");
             int i = 0;  //counter for Names[] and Scores[]
 
             while ((line = file.ReadLine()) != null)
