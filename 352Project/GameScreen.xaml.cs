@@ -16,6 +16,7 @@ namespace _352Project
         private double gravity = 0.08;
         private double velocity = 0;                    //how quickly llama is dropping
         private double leapDist = 4;
+       
         //timer variable
         private int minutes = 0;
         private int seconds = 0;
@@ -25,7 +26,8 @@ namespace _352Project
         //for movement and generating of fences
         private List<Image> fences = new List<Image>();
         private const double approaching = 0.8;         //how fast fences move
-        private const int wOfBetween = 80;              //space between fences
+        private const int distBetweenFence = 80;              //space between fences
+
 
         //NOTE: All bottom fences are even # and top fences are odd #
         //timers-- outside so collide stops them
