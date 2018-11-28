@@ -25,11 +25,14 @@ namespace _352Project
         bool up = false;            //direction llama should move
         int llamaHighPoint = 43;    //starting position of llama (top)
         int llamaLowPoint = 90;     //lowest position for llama path
+
         public MainMenu()
         {
           
             InitializeComponent();
             InitializeComponent();
+
+            //timer for llama movement
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(animateLlama);
             timer.Interval = TimeSpan.FromMilliseconds(0.5);

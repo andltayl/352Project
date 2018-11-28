@@ -41,6 +41,7 @@ namespace _352Project
         {
             InitializeComponent();
 
+            //initialize arrays
             for (int i = 0; i < 10; i++)
             {
                 Scores[i] = 0;
@@ -77,7 +78,7 @@ namespace _352Project
                 RetryButton.Visibility = Visibility.Hidden;
             }
 
-            file.Close();
+            
 
             //add high score to list
             if (addToList == true)
@@ -88,6 +89,7 @@ namespace _352Project
         }
 
 
+        //get scores from file
         private void getScores()
         {
             file = new System.IO.StreamReader("HighScores.txt");
@@ -126,6 +128,8 @@ namespace _352Project
 
                 }
             }
+
+            file.Close();
         }
 
         //show high score messages
@@ -157,8 +161,12 @@ namespace _352Project
         //adds name to list
         private void InputButton_Click(object sender, RoutedEventArgs e)
         {
-            newName = NameInput.Text;
+            newName = NameInput.Text;   //player's name
+
+            //hide OK button
             InputButton.Visibility = Visibility.Hidden;
+
+            //open output file to save list
             outFile = new System.IO.StreamWriter("HighScores.txt");
 
             //shift items in array 
@@ -173,10 +181,11 @@ namespace _352Project
             Scores[position] = score;
             Names[position] = newName;
 
-            //save changes
+            //reset printed list
             ScoreListNames.Text = null;
             ScoreListScores.Text = null;
 
+            //save changes
             for (int i = 0; i < MAX_SIZE; i++)
             {
                 //print new list to screen
