@@ -69,11 +69,11 @@ namespace _352Project
             difficultyNum++;
 
             switch (difficultyNum) {
-                case 1: difficultyButton.Content = "Easy";
+                case 1: difficultyButton.Content = "Difficulty: Easy";
                     break;
-                case 2: difficultyButton.Content = "Normal";
+                case 2: difficultyButton.Content = "Difficulty: Normal";
                     break;
-                default: difficultyButton.Content = "Hard";
+                default: difficultyButton.Content = "Difficulty: Hard";
                     difficultyNum = 0;
                     break;
             }
