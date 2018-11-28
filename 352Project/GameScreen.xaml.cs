@@ -19,12 +19,14 @@ namespace _352Project
         //timer variable
         private int minutes = 0;
         private int seconds = 0;
-        //Difficulty settings
-        private const double approaching = 1;   //how fast fences move              demo = 1
-        private const int wOfBetween = 80;      //space between fences              demo = 80
-        private const int totalSum = 160;         //Points need to score 1 point    demo = 160
-        private const int distBetweenFence = 5; //Distance between each fence       demo = 5
-        private Fence allFences = new Fence(wOfBetween, approaching, totalSum);
+
+        int carry = 0;
+
+        //for movement and generating of fences
+        private List<Image> fences = new List<Image>();
+        private const double approaching = 0.8;         //how fast fences move
+        private const int wOfBetween = 80;              //space between fences
+
         //NOTE: All bottom fences are even # and top fences are odd #
         //timers-- outside so collide stops them
         private DispatcherTimer gravTimer = new DispatcherTimer();
@@ -139,6 +141,14 @@ namespace _352Project
 
         private void fenceMovement(object sender, EventArgs e)
         {
+
+            //score half-adder
+            bool sum = false;
+          
+
+            double pipeWidth = 30;
+            List<int> remove = new List<int>();
+
             //moves all fences to left by variable -> approaching
             for(int i=0; i< allFences.fences.Count; i++)
             {
@@ -146,21 +156,51 @@ namespace _352Project
                 { Gameshow.Children.Remove(allFences.fences[i]); }
                 else
                 {
-                    allFences.moveFence(i);
-                    bool collide = allFences.CollisionDetect(llama, i);
-                    if(collide)
+
+                    fences[i].Margin = new Thickness(fences[i].Margin.Left - approaching, fences[i].Margin.Top, fences[i].Margin.Right + approaching, fences[i].Margin.Bottom);
+                    
+                    //if llama is intersecting with pipe's vertical
+                    if((llama.Margin.Right <= fences[i].Margin.Right+pipeWidth) && (llama.Margin.Left <= fences[i].Margin.Left+pipeWidth))
                     {
-                        gravTimer.Stop();
-                        timeTimer.Stop();
-                        genTimer.Stop();
-                        //add to open a popup to retry or go to new window
-                    }
-                    else
-                    {
-                        ScoreBoard.Text = allFences.score.ToString();
+                        double fenceHeight = 420 - fences[i].Margin.Top - fences[i].Margin.Bottom;
+                        //if top fence
+                        if((fences[i].Margin.Top == (-1)) && llama.Margin.Top <= fences[i].Margin.Top+fenceHeight)
+                        {
+                            gravTimer.Stop();
+                            timeTimer.Stop();
+                            genTimer.Stop();
+                            GameOver(carry);
+                        }
+                        //if bottom fence
+                        else if((fences[i].Margin.Bottom == (-1)) && llama.Margin.Bottom <= fences[i].Margin.Bottom+fenceHeight)
+                        {
+                            gravTimer.Stop();
+                            timeTimer.Stop();
+                            genTimer.Stop();
+                            GameOver(carry);
+                        }
+                        //if not hit update scoreBoard
+                        else
+                        {
+                            sum = !sum;
+                            if(!sum)
+                            {
+                                carry++;
+                                ScoreBoard.Text = (carry).ToString();
+                            }
+                        }
+
                     }
                 }
             }
+        }
+        //transition to High Scores screen
+        void GameOver(int carry)
+        {
+            MessageBox.Show("GAME OVER");
+            HighScores h = new HighScores(carry);
+            h.Show();
+            this.Close();
         }
     }
 }

@@ -89,5 +89,13 @@ namespace _352Project
             m.Show();
             this.Close();
         }
+
+        //view high scores
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            HighScores h = new HighScores(-1);
+            h.Show();
+            this.Close();
+        }
     }
 }
