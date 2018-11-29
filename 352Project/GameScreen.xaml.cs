@@ -127,6 +127,14 @@ namespace _352Project
                     genTimer.Start();
                 }
             }
+            else if (e.Key == Key.Escape)
+            {
+                gravTimer.Stop();
+                timeTimer.Stop();
+                genTimer.Stop();
+                //add to open a popup to retry or go to new window
+                GameOver(allFences.score);
+            }
         }
 
         private void GenerateFence(object sender, EventArgs e)
