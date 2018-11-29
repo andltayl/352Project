@@ -57,7 +57,7 @@
             </TextBlock.Effect>
         </TextBlock>
 
-        
+
 
         <Rectangle Fill="#FF1F1F7E" HorizontalAlignment="Left" Height="326" Margin="500,43,0,0" Stroke="Black" VerticalAlignment="Top" Width="257">
             <Rectangle.Effect>
@@ -65,10 +65,12 @@
             </Rectangle.Effect>
         </Rectangle>
 
-        <TextBlock HorizontalAlignment="Left" Height="34" Margin="560,58,0,0" TextWrapping="Wrap" Text="How to Play" VerticalAlignment="Top" Width="136" Background="{x:Null}" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
-        <TextBlock HorizontalAlignment="Left" Height="48" Margin="547,166,0,0" TextWrapping="Wrap" Text="Jump&#x9;- Spacebar&#xA;Pause&#x9;- P" TextAlignment="Justify" VerticalAlignment="Top" Width="149" Background="{x:Null}" Foreground="#FFFDFDFD" FontSize="16"/>
-        <Button x:Name="startButton" Content="Start" HorizontalAlignment="Left" Margin="602,291,0,0" VerticalAlignment="Top" Width="75" Background="#FFFDFDFD" Click="startButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="507,97,0,0" TextWrapping="Wrap" Text="Jump through pipes! Don't hit one or it's game over!" TextAlignment="Center" VerticalAlignment="Top" Height="67" Width="244" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Height="34" Margin="559,157,0,0" TextWrapping="Wrap" Text="How to Play" TextAlignment="Center" VerticalAlignment="Top" Width="149" Background="{x:Null}" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
+        <TextBlock Height="73" Margin="559,238,0,0" TextWrapping="Wrap" TextAlignment="Justify" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFFDFDFD" FontSize="16" HorizontalAlignment="Left" Width="149"><Run Text="Jump&#x9;- Spacebar&#xA;Pause&#x9;- P"/><LineBreak/><Run Text="ESC&#x9;- End Game"/></TextBlock>
+        <Button x:Name="startButton" Content="Start" HorizontalAlignment="Left" Margin="593,334,0,0" VerticalAlignment="Top" Width="75" Background="#FFFDFDFD" Click="startButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="506,191,0,0" TextWrapping="Wrap" Text="Jump through pipes! Don't hit one or it's game over!" TextAlignment="Center" VerticalAlignment="Top" Height="37" Width="244" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Height="34" Margin="559,53,0,0" TextWrapping="Wrap" Text="Point Values" TextAlignment="Center" VerticalAlignment="Top" Width="149" Background="{x:Null}" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="506,92,0,0" TextWrapping="Wrap" TextAlignment="Justify" VerticalAlignment="Top" Height="60" Width="244" Foreground="White"><Run Text="Easy:&#x9;&#x9;1 score = 0.5 points"/><LineBreak/><Run Text="Normal: &#x9;&#x9;1 score =    1 points"/><LineBreak/><Run Text="Hard: &#x9;&#x9;1 score =    2 points"/></TextBlock>
 
 
     </Grid>

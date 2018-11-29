@@ -18,9 +18,9 @@ namespace _352Project
     public partial class GameScreen : Window
     {
         //for movement of llama
-        private double gravity = 0.08;
+        private double gravity = 0.05;
         private double velocity = 0;                    //how quickly llama is dropping
-        private double leapDist = 4;
+        private double leapDist = 3;
         //timer variable
         private int minutes = 0;
         private int seconds = 0;
@@ -215,6 +215,10 @@ namespace _352Project
         void GameOver(int carry)
         {
             MessageBox.Show("GAME OVER");
+            //points changed for difficulty
+            if (difNum == 1) { carry /= 2; }    //Easy
+            else if (difNum == 2) { }           //Normal
+            else { carry *= 2; }                //Hard
             HighScores h = new HighScores(carry, difNum);
             h.Show();
             this.Close();

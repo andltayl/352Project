@@ -24,7 +24,7 @@
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
-        <TextBlock x:Name ="yourScore" HorizontalAlignment="Left" Margin="112,112,0,0" TextWrapping="Wrap" Text="Your Score: " VerticalAlignment="Top" Height="19" Width="89" Foreground="#FFFDF9F9"/>
+        <TextBlock x:Name ="yourScore" HorizontalAlignment="Left" Margin="112,112,0,0" TextWrapping="Wrap" Text="Your Points: " VerticalAlignment="Top" Height="19" Width="89" Foreground="#FFFDF9F9"/>
         <TextBlock x:Name="ScoreListNames" HorizontalAlignment="Left" Margin="457,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="260" Width="123" FontSize="16"/>
         <TextBlock x:Name="ScoreListScores" HorizontalAlignment="Left" Margin="613,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="260" Width="123" FontSize="16"/>
 
