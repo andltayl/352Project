@@ -21,7 +21,7 @@ namespace _352Project
     /// </summary>
     public partial class MainMenu : Window
     {
-        int difficultyNum = 0;      //number that correlates to difficulty setting
+        int difficultyNum = 2;      //number that correlates to difficulty setting
         bool up = false;            //direction llama should move
         int llamaHighPoint = 43;    //starting position of llama (top)
         int llamaLowPoint = 90;     //lowest position for llama path
@@ -88,7 +88,7 @@ namespace _352Project
         //start game
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
-            GameScreen m = new GameScreen();
+            GameScreen m = new GameScreen(difficultyNum);
             m.Show();
             this.Close();
         }
@@ -96,7 +96,7 @@ namespace _352Project
         //view high scores
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            HighScores h = new HighScores(-1);
+            HighScores h = new HighScores(-1, difficultyNum);
             h.Show();
             this.Close();
         }

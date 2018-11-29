@@ -37,8 +37,12 @@ namespace _352Project
         bool addToList = false;     //add to list if score is high enough
         string newName;             //new name for high score player
 
-        public HighScores(int _score)
+
+        //difficulty to be used on retry
+        private int difficulty;
+        public HighScores(int _score, int diffNum)
         {
+            difficulty = diffNum;
             InitializeComponent();
 
             //initialize arrays
@@ -144,7 +148,7 @@ namespace _352Project
         //retry
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            GameScreen m = new GameScreen();
+            GameScreen m = new GameScreen(difficulty);
             m.Show();
             this.Close();
 

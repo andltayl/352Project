@@ -25,19 +25,23 @@ namespace _352Project
         private int minutes = 0;
         private int seconds = 0;
         //Difficulty settings
-        private const double approaching = 1;   //how fast fences move              demo = 1
-        private const int wOfBetween = 80;      //space between fences              demo = 80
-        private const int totalSum = 160;         //Points need to score 1 point    demo = 160
-        private const int distBetweenFence = 5; //Distance between each fence       demo = 5
-        private Fence allFences = new Fence(wOfBetween, approaching, totalSum);
+        private int difNum = 0;
+        private double approaching = 1;   //how fast fences move              demo = 1        Med = 2     Hard = 3
+        private int wOfBetween = 80;      //space between fences              demo = 80       Med = 60    Hard = 40
+        private int totalSum = 160;         //Points need to score 1 point    demo = 160       Med = 80    Hard = 54
+        private double distBetweenFence = 5; //Distance between each fence       demo = 5           Med = 1     Hard = 1
+        private Fence allFences;
         //NOTE: All bottom fences are even # and top fences are odd #
         //timers-- outside so collide stops them
         private DispatcherTimer gravTimer = new DispatcherTimer();
         private DispatcherTimer timeTimer = new DispatcherTimer();
         private DispatcherTimer genTimer = new DispatcherTimer();
 
-        public GameScreen()
+        public GameScreen(int difficulty)
         {
+            difNum = difficulty;
+            changeDiff();
+
             InitializeComponent();
 
             //time for constant drop of llama
@@ -168,11 +172,42 @@ namespace _352Project
                 }
             }
         }
+
+        //upon start use difficulty selected
+        private void changeDiff()
+        {
+            switch (difNum)
+            {
+                //Easy
+                case 1:
+                    approaching = 1;
+                    wOfBetween = 80;
+                    totalSum = 160;
+                    distBetweenFence = 5;
+                    break;
+                //Medium
+                case 2:
+                    approaching = 2;
+                    wOfBetween = 60;
+                    totalSum = 80;
+                    distBetweenFence = 1;
+                    break;
+                //Hard
+                default:
+                    approaching = 3;
+                    wOfBetween = 40;
+                    totalSum = 54;
+                    distBetweenFence = 1;
+                    break;
+            }
+            allFences = new Fence(wOfBetween, approaching, totalSum);
+        }
+
         //transition to High Scores screen
         void GameOver(int carry)
         {
             MessageBox.Show("GAME OVER");
-            HighScores h = new HighScores(carry);
+            HighScores h = new HighScores(carry, difNum);
             h.Show();
             this.Close();
         }
