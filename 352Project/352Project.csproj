@@ -59,12 +59,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-
     <Compile Include="HighScores.xaml.cs">
       <DependentUpon>HighScores.xaml</DependentUpon>
     </Compile>
     <Compile Include="fence.cs" />
-
     <Compile Include="TrueMain.cs" />
     <Page Include="HighScores.xaml">
       <SubType>Designer</SubType>
@@ -121,9 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\tempFence.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="HighScores.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
