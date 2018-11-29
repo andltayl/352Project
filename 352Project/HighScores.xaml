@@ -33,7 +33,7 @@
         <Button Content="Main Menu" HorizontalAlignment="Left" Margin="126,332,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
         <!--High Score Message-->
-        <TextBlock x:Name="HighScoreMessage" HorizontalAlignment="Left" Margin="112,153,0,0" TextWrapping="Wrap" Text="New High Score!" VerticalAlignment="Top" Height="29" Foreground="#FFDF1515" FontWeight="Bold" Visibility="Hidden">
+        <TextBlock x:Name="HighScoreMessage" HorizontalAlignment="Left" Margin="112,153,0,0" TextWrapping="Wrap" Text="New High Score!" VerticalAlignment="Top" Height="29" Foreground="#FFDF1515" FontWeight="Bold">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
@@ -47,6 +47,7 @@
             </TextBlock.Effect>
         </TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="219" Margin="405,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" TextAlignment="Center" FontSize="16"><Run Text="1"/><LineBreak/><Run Text="2"/><LineBreak/><Run Text="3"/><LineBreak/><Run Text="4"/><LineBreak/><Run Text="5"/><LineBreak/><Run Text="6"/><LineBreak/><Run Text="7"/><LineBreak/><Run Text="8"/><LineBreak/><Run Text="9"/><LineBreak/><Run Text="10"/></TextBlock>
+        <TextBlock x:Name="tooLong" HorizontalAlignment="Left" Margin="112,182,0,0" TextWrapping="Wrap" Text="Name too long." VerticalAlignment="Top" Foreground="#FFF3EEEE" Visibility="Hidden"/>
 
     </Grid>
 </Window>

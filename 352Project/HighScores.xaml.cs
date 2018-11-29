@@ -162,9 +162,17 @@ namespace _352Project
         private void InputButton_Click(object sender, RoutedEventArgs e)
         {
             newName = NameInput.Text;   //player's name
+            
+            if (newName.Length > 9)
+            {
+                tooLong.Visibility = Visibility.Visible;
+                return;
+            }
 
-            //hide OK button
+            
+            //hide OK button and "name too long message" 
             InputButton.Visibility = Visibility.Hidden;
+            tooLong.Visibility = Visibility.Hidden;
 
             //open output file to save list
             outFile = new System.IO.StreamWriter("HighScores.txt");
