@@ -40,12 +40,10 @@ namespace _352Project
         //Make a fence and add to the list
         public void genFence(bool Top, Grid Gameshow, Image llama)
         {
-
             fences.Add(new Image());
             //Source
             BitmapImage fencePic = new BitmapImage();
             fencePic.BeginInit();
-            //
             string tempFenceDir = resourceImgDir + "tempFence.png";
             fencePic.UriSource = new Uri(tempFenceDir);
             fencePic.EndInit();
