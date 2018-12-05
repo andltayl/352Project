@@ -1,6 +1,6 @@
 \documentclass[10pt,conference,onecolumn,compsoc]{IEEEtran}
 
-
+\usepackage{rotating}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \setlist[itemize]{leftmargin=3 cm}
@@ -14,7 +14,7 @@
 \fi
 
 % *** GRAPHICS RELATED PACKAGES ***
-\usepackage[pdftex]{graphicx}
+% \usepackage[pdftex]{graphicx}
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -54,18 +54,19 @@ We will be creating a similar game in the vein of Flappy Bird, which we are call
 	We expect that insuring the player character's movement is smooth and responsive will be difficult. Hit boxes and fail states will be initially difficult. If we decide to have randomly generated pipes, we believe this will prove to be extremely tricky.
 
 \section{Scope}
-	Our main goal is to make Leaping Llamas, a simple Flappy Bird-like game. If we find ourselves finished well before the due date, we will add additional mechanics to further set it apart from Flappy Bird. Firstly, we would like to add bullet hell mechanics. Bullet hell mechanics are a usually extreme or hell-like amount of obstacles, usually bullet-like, that while challenging should be dodgable from somewhere on-screen.  Secondly, we would like to add onto the existing game in the form of animating objects, in order of: the background, the llama, any buttons, and any obstacles like 'pipes' and/or bullet-likes. 
+	Our main goal is to make Leaping Llamas, a simple Flappy Bird-like game. If we find ourselves finished well before the due date, we will add additional mechanics to further set it apart from Flappy Bird. Firstly, we would like to add extra llama images to be used or `skins'. Eventually bullet hell mechanics. Bullet hell mechanics are a usually extreme or hell-like amount of obstacles, usually bullet-like, that while challenging should be dodgable from somewhere on-screen.  Secondly, we would like to add onto the existing game in the form of animating objects, in order of: the background, the llama, any buttons, and any obstacles like 'pipes' and/or bullet-likes. 
 
 \subsection{Requirements}
 	As part of fleshing out the scope of your requirements, you'll also need to keep in mind both your functional and non-functional requirements.  These should be listed, and explained in detail as necessary.  Use this area to explain how you gathered these requirements.
 
 \subsubsection{Functional}
 	\begin{itemize}
-	\item The game must be controlled with "Spacebar" key or "left-click" mouse button.
+	\item The game must be controlled with ``Spacebar'' key.
 	\item The game must be implemented with C\# WPF.
 	\item The game must feature music and sound effects.
 	\item The game must feature obstacle generation with several different difficulty options.
-	\item The game must be pausable with the "P" key.
+	\item The game must be pausable with the ``P'' key.
+	\item The game must end with the ``ESC'' key
 	\end{itemize}
 
 \subsubsection{Non-Functional}
@@ -166,17 +167,18 @@ Alternative: The user chooses the "Title" button
 \item[Termination Outcome:] The user will be at the Title screen at case: 1. 
 \end{enumerate}
 
+\begin{center}
 \begin{figure}[ht!]
-\includegraphics[height=250px, width=350px]{Mockup.png}
-\caption{First picture, This is full number of Mock-Interfaces planned.}
+\includegraphics[scale = 0.4]{Mockup.png}
+\caption{First picture, This is full number of Mock-Interfaces made.}
 \label{fig:mockup}
 \end{figure}
-
+\end{center}
 
 
 \subsection{Interface Mockups}
 For all below see Figure \ref{fig:mockup}
-First in order, the user will begin on the 'Title' screen and choose one of the button to move to the corresponding screen. Next the 'Difficulty' screen buttons will all lead to the 'Game' screen. The 'Game' screen will always lead to the 'Score' screen at the end of the game. The 'Score' screen has two choices as follows. Lastly, the 'Highscore' screen will lead to two different options as follows.
+First in order, the user will begin on the `Title' screen, optionally choose from the changing difficulty button or leave it to default to `normal' choose one of the button to move to the corresponding screen. Next the `Game' screen will always lead to the `Score' screen at the end of the game. The `Score' screen has at least two choices. First, to retry and return to the `Game' screen or second to exit to the `Title' screen. Another choice may appear if the player has earned enough point to join the Highscore board and can enter a nickname up to nine characters in length before choosing one of the previous choices.
 
 \section{Project Timeline}
 See Figure \ref{fig:timeline} below.
@@ -187,20 +189,20 @@ See Figure \ref{fig:timeline} below.
 \end{figure}
 
 \section{Project Structure}
-At first, this will be a little empty (it will need to be filled in by the time you turn in your final report).  This is your chance to discuss all of your design decisions (consider this the README's big brother).
+We choose to make the difficulty button change to the current difficulty upon clicking it. We also choose to make the new highscore option invisible unless the amount of points earned is reached.
+As for the game portion we made the `esc' and `p' keys shortcuts to ending the game instantly and pausing the game respectfully. We also made the portion of the screen above the main screen inaccessible.
 
 \subsection{UML Outline}
 See Figure \ref{dia}.
 
-\begin{figure}[ht!]
-\includegraphics[scale=0.25]{LeapingLlamas.png}
+\begin{sidewaysfigure}[!ht]
+\includegraphics[scale=0.3]{LeapingLlamas.png}
 \caption{diagram of project using the Decorator Pattern and Strategy Pattern.}
 \label{dia}
-\end{figure}
-
+\end{sidewaysfigure}
 
 \subsection{Design Patterns Used}
-Our Program will be using 2 design patterns. The first is a Decorator Pattern for selecting different skins of llama. The second is a Strategy Pattern on the different difficulties we have planned.
+Our Program will be using 2 design patterns. The first is a Decorator Pattern for selecting different skins of llama. The second is a Strategy Pattern on the different difficulties we have different fence classes for.
 
 \section{Results}
 Leaping Llamas started to really take shape by deliverable 5. Previously, the project was mostly conceptual in nature, however between deliverables 4 and 5 the program really took shape and is a playable, interesting user experience. As the game stands now there are options for 3 different difficulties, a "infinitely" generated level that keeps high scores, and hit detection if the llama hits a barrier.
