@@ -33,7 +33,7 @@
         <Button Content="Main Menu" HorizontalAlignment="Left" Margin="126,332,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
         <!--High Score Message-->
-        <TextBlock x:Name="HighScoreMessage" HorizontalAlignment="Left" Margin="112,153,0,0" TextWrapping="Wrap" Text="New High Score!" VerticalAlignment="Top" Height="29" Foreground="#FFDF1515" FontWeight="Bold">
+        <TextBlock x:Name="HighScoreMessage" HorizontalAlignment="Left" Margin="112,153,0,0" TextWrapping="Wrap" Text="New High Score!" VerticalAlignment="Top" Height="29" Foreground="#FFDF1515" FontWeight="Bold" Visibility="Hidden">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
