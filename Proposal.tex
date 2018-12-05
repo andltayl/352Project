@@ -70,54 +70,33 @@ We will be creating a similar game in the vein of Flappy Bird, which we are call
 
 \subsubsection{Non-Functional}
 	\begin{itemize}
-	\item Security -- user credentials must be encrypted on disk, users should be able to reset their passwords if forgotten
 	\item Performance -- Speed of obstacle generation.
 	\item Scalability -- The obstacle generation will be potentially unlimited obstacle generation.
 	\end{itemize}
 
 \subsection{Use Cases}
-	This subsection is arguably part of how you define your project scope (why it is in the Scope section...).  In a traditional Waterfall approach, as part of your requirements gathering phase (what does the product actually \emph{need} to do?), you will typically sit down with a user to develop use cases.
-
-	You should have a table listing all use cases discussed in the document, the ID is just the order it is listed in, the name should be indicative of what should happen, the primary actor is typically most important in an application where you may have different levels of users (think admin vs normal user), complexity is a best-guess on your part as to how hard it should be.  A lower number in priority indicates that it needs to happen sooner rather than later.  A sample table, or Use Case Index can be seen in Table \ref{tab:useCaseIndex}.
-
-\begin{table}
-\centering
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
-\hline \hline
-1 & Start Window & User & Simple & 1\\
-\hline
-2 & Choose Difficulty & User & Simple & 1\\
-\hline
-3 & Playing \textit{Leaping Llamas} & User & Hard & 1\\
-\hline
-4 & Scoreboard after \textbf{Game Over} & System & Med & 1\\
-\hline
-5 & High Score Screen & System & Med & 1\\
-\hline
-
-\end{tabular}
-\caption{Sample use case table}
-\label{tab:useCaseIndex}
-\end{table}
 
 %Case 1
 \begin{itemize}
 \item[Use Case Number:] 1
 \item[Use Case Name:] Start Window
-\item[Description:] The user on the program starts the program. The user will choose whether to start the game, see the high scores, or exit the program.
+\item[Description:] The user on the program starts the program. The user will choose whether to start the game, see the high scores, change the difficulty, or exit the program.
 \end{itemize}
 \begin{enumerate}
 \item The user shall press "Start" button.
-\item The program go to the difficulty screen.
 \item[Termination Outcome:] The user will go to Case: 2.
+\end{enumerate}
+Alternative: User chooses the "Difficulty" button
+\begin{enumerate}
+\item The user shall press "Difficulty" button.
+\item The program cycles through different difficulties.
+\item[Termination Outcome:] The user will go to Case: 1.
 \end{enumerate}
 Alternative: User chooses the "High Score" button
 \begin{enumerate}
 \item The user shall press "High Score" button.
 \item The program go to the High Score screen.
-\item[Termination Outcome:] The user will go to Case: 6.
+\item[Termination Outcome:] The user will go to Case: 4.
 \end{enumerate}
 Alternative: User chooses the "Exit" button
 \begin{enumerate}
@@ -126,45 +105,9 @@ Alternative: User chooses the "Exit" button
 \item[Termination Outcome:] The user has kill the program.
 \end{enumerate}
 
-
 %Case 2
 \begin{itemize}
 \item[Use Case Number:] 2
-\item[Use Case Name:] Choose difficulty
-\item[Description:] The user on the program chooses what difficulty for the game. The user will be shown the controls for the game.
-\end{itemize}
-
-\begin{enumerate}
-\item The user shall press "Easy" button.
-\item The screen shall show the controls for the proceeding game.
-\item[Termination Outcome:] The user has chosen the difficulty and will be sent to the game.
-\end{enumerate}
-
-Alternative: User chooses Medium difficulty
-\begin{enumerate}
-\item The user shall press "Medium" button.
-\item The screen shall show the controls for the proceeding game.
-\item[Termination Outcome:] The user has chosen the difficulty and will be sent to the game.
-\end{enumerate}
-
-Alternative: User chooses Hard difficulty
-\begin{enumerate}
-\item The user shall press "Hard" button.
-\item The screen shall show the controls for the proceeding game.
-\item[Termination Outcome:] The user has chosen the difficulty and will be sent to the game.
-\end{enumerate}
-
-Alternative: User chooses "Back" button
-\begin{enumerate}
-\item The user shall press "Back" button.
-\item The program shall return to the Starting screen.
-\item[Termination Outcome:] The user has chosen to go back to the Case: 1 screen.
-\end{enumerate}
-
-
-%Case 3
-\begin{itemize}
-\item[Use Case Number:] 3
 \item[Use Case Name:] Playing \textit{Leaping Llamas}
 \item[Description:] The user on the program starts the game. The user will make the llama leap over and between the obstacles until the llama hits a obstacle. This will send the user to the scoreboard.
 \end{itemize}
@@ -177,9 +120,9 @@ Alternative: User chooses "Back" button
 \end{enumerate}
 
 
-%Case 4
+%Case 3
 \begin{itemize}
-\item[Use Case Number:] 4
+\item[Use Case Number:] 3
 \item[Use Case Name:] Scoreboard after 'Game Over'
 \item[Description:] A shopper on our site has finished shopping.  They will click on a ``Checkout" button.  This will kick off a process to calculate cart total, any taxes, shipping rates, and collect payment from the shopper.
 
@@ -200,9 +143,9 @@ Alternative: The user scored a High Score
 \end{enumerate}
 
 
-%Case 5
+%Case 4
 \begin{itemize}
-\item[Use Case Number:] 5
+\item[Use Case Number:] 4
 \item[Use Case Name:] High Score screen
 \item[Description:] A user has finished playing. The user will be shown the top 10 High Scores on the game. They will choose either to play again or return to the title screen.
 
@@ -260,12 +203,10 @@ See Figure \ref{dia}.
 Our Program will be using 2 design patterns. The first is a Decorator Pattern for selecting different skins of llama. The second is a Strategy Pattern on the different difficulties we have planned.
 
 \section{Results}
-This section will start out a little vague, but it should grow as your project evolves.  With each deliverable you hand in, give me a final summary of where your project stands.  By the end, this should be a reflective section discussing how many of your original goals you managed to attain/how many desired use cases you implemented/how many extra features you added.
+Leaping Llamas started to really take shape by deliverable 5. Previously, the project was mostly conceptual in nature, however between deliverables 4 and 5 the program really took shape and is a playable, interesting user experience. As the game stands now there are options for 3 different difficulties, a "infinitely" generated level that keeps high scores, and hit detection if the llama hits a barrier.
 
 \subsection{Future Work}
-Where are you going next with your project?
-For early deliverables, what are your next steps?  (HINT: you will typically want to look back at your timeline and evaluate: did you meet your expected goals?  Are you ahead of schedule?  Did you decide to shift gears and implement a new feature?)
-By the end, what do you plan on doing with this project?  Will you try to sell it?  Set it on fire?  Link to it on your resume and forget it exists?
+Before the final submission we will implement different skins for the llama that the user can choose from. Aside from this the only thing we want to get fixed is the hitbox detection near the rear of the character. As for the far future plans for the project each member of our team will add the final version of the game to their Github.com accounts to showcase to potential employers.
 
 \begin{thebibliography}{1}
 
