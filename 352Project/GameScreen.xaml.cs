@@ -18,9 +18,9 @@ namespace _352Project
     public partial class GameScreen : Window
     {
         //for movement of llama
-        private double gravity = 0.05;
+        private double gravity = 0.1;
         private double velocity = 0;                    //how quickly llama is dropping
-        private double leapDist = 3;
+        private double leapDist = 3.5;
         //timer variable
         private int minutes = 0;
         private int seconds = 0;
@@ -33,13 +33,18 @@ namespace _352Project
         private DispatcherTimer gravTimer = new DispatcherTimer();
         private DispatcherTimer timeTimer = new DispatcherTimer();
         private DispatcherTimer genTimer = new DispatcherTimer();
+        string selectedLlama;
 
-        public GameScreen(int difficulty)
+        public GameScreen(int difficulty, string selectedSkin)
         {
             difNum = difficulty;
+            selectedLlama = selectedSkin;
             changeDiff();
 
             InitializeComponent();
+
+            ImageSource skin = new ImageSourceConverter().ConvertFromString(selectedLlama) as ImageSource;
+            llama.Source = skin;
 
             //time for constant drop of llama
             //dropping llama
@@ -191,7 +196,7 @@ namespace _352Project
                 //Medium
                 case 2:
                     allFences = new NormalFence();
-                    distBetweenFence = 1;
+                    distBetweenFence = 2.5;
                     break;
                 //Hard
                 default:
@@ -209,7 +214,7 @@ namespace _352Project
             if (difNum == 1) { carry /= 2; }    //Easy
             else if (difNum == 2) { }           //Normal
             else { carry *= 2; }                //Hard
-            HighScores h = new HighScores(carry, difNum);
+            HighScores h = new HighScores(carry, difNum, selectedLlama);
             h.Show();
             this.Close();
         }

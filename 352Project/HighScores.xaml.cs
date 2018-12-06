@@ -36,12 +36,13 @@ namespace _352Project
         int position = 0;           //position in high score list
         bool addToList = false;     //add to list if score is high enough
         string newName;             //new name for high score player
-
+        string selectedLlama;
 
         //difficulty to be used on retry
         private int difficulty;
-        public HighScores(int _score, int diffNum)
+        public HighScores(int _score, int diffNum, string selectedSkin)
         {
+            selectedLlama = selectedSkin;
             difficulty = diffNum;
             InitializeComponent();
 
@@ -148,7 +149,7 @@ namespace _352Project
         //retry
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            GameScreen m = new GameScreen(difficulty);
+            GameScreen m = new GameScreen(difficulty, selectedLlama);
             m.Show();
             this.Close();
 

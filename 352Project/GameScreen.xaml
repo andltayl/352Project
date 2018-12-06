@@ -15,7 +15,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <!--llama's dem: 50x50-->
-            <Image x:Name="llama" Source="pack://application:,,,/Resources/llama.png" Stretch="Fill" Margin="10,10,733.6,360"/>
+            <Image x:Name="llama" Stretch="Fill" Margin="10,10,733.6,360"/>
         </Grid>
         <Grid x:Name="ScoreTimeGrid" Background="ForestGreen" Margin="0,412,-0.4,0.4">
             <TextBlock HorizontalAlignment="Left" Height="23" Margin="672,-1,0,0" TextWrapping="Wrap" Text="Time: " VerticalAlignment="Top" Width="52" FontSize="16" FontWeight="Bold" FontFamily="Showcard Gothic"/>

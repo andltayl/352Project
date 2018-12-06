@@ -59,13 +59,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BrownLlama.cs" />
+    <Compile Include="DefaultLlama.cs" />
     <Compile Include="Easyfence.cs" />
     <Compile Include="Hardfence.cs" />
     <Compile Include="HighScores.xaml.cs">
       <DependentUpon>HighScores.xaml</DependentUpon>
     </Compile>
     <Compile Include="fence.cs" />
+    <Compile Include="LlamaDecorator.cs" />
+    <Compile Include="llamaSkin.cs" />
     <Compile Include="Normalfence.cs" />
+    <Compile Include="PinkLlama.cs" />
     <Compile Include="TrueMain.cs" />
     <Page Include="HighScores.xaml">
       <SubType>Designer</SubType>
@@ -122,6 +127,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\tempFence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\llama22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\llama2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

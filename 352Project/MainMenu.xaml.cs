@@ -21,16 +21,23 @@ namespace _352Project
     /// </summary>
     public partial class MainMenu : Window
     {
-        int difficultyNum = 0;      //number that correlates to difficulty setting
+        int difficultyNum = 2;      //number that correlates to difficulty setting
+        int skinNum = 0;            //number corresponding to the skin currently selected
         bool up = false;            //direction llama should move
         int llamaHighPoint = 43;    //starting position of llama (top)
         int llamaLowPoint = 90;     //lowest position for llama path
+        string selectedLlama;
 
         public MainMenu()
         {
-          
+            llamaSkin basicLlama = new DefaultLlama();
+            selectedLlama = basicLlama.getSkin();           
+      
             InitializeComponent();
             InitializeComponent();
+
+            ImageSource skin = new ImageSourceConverter().ConvertFromString(selectedLlama) as ImageSource;
+            llama.Source = skin;
 
             //timer for llama movement
             DispatcherTimer timer = new DispatcherTimer();
@@ -69,11 +76,11 @@ namespace _352Project
             difficultyNum++;
 
             switch (difficultyNum) {
-                case 1: difficultyButton.Content = "Difficulty: Hard";
+                case 1: difficultyButton.Content = "Difficulty: Easy";
                     break;
-                case 2: difficultyButton.Content = "Difficulty: Easy";
+                case 2: difficultyButton.Content = "Difficulty: Medium";
                     break;
-                default: difficultyButton.Content = "Difficulty: Default";
+                default: difficultyButton.Content = "Difficulty: Hard";
                     difficultyNum = 0;
                     break;
             }
@@ -88,7 +95,7 @@ namespace _352Project
         //start game
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
-            GameScreen m = new GameScreen(difficultyNum);
+            GameScreen m = new GameScreen(difficultyNum, selectedLlama);
             m.Show();
             this.Close();
         }
@@ -96,9 +103,38 @@ namespace _352Project
         //view high scores
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            HighScores h = new HighScores(-1, difficultyNum);
+            HighScores h = new HighScores(-1, difficultyNum, selectedLlama);
             h.Show();
             this.Close();
+        }
+
+        private void Skin_Select_Button(object sender, RoutedEventArgs e)
+        {
+            //increment difficulty choice on each click
+            skinNum++;
+
+            switch (skinNum)
+            {
+                case 1:
+                    llamaSkin basicLlama = new BrownLlama(new DefaultLlama());
+                    selectedLlama = basicLlama.getSkin();
+                    ImageSource skin = new ImageSourceConverter().ConvertFromString(selectedLlama) as ImageSource;
+                    llama.Source = skin;
+                    break;
+                case 2:
+                    llamaSkin basicLlama1 = new PinkLlama(new DefaultLlama());
+                    selectedLlama = basicLlama1.getSkin();
+                    ImageSource skin1 = new ImageSourceConverter().ConvertFromString(selectedLlama) as ImageSource;
+                    llama.Source = skin1;
+                    break;
+                default:
+                    llamaSkin basicLlama2 = new DefaultLlama();
+                    selectedLlama = basicLlama2.getSkin();
+                    ImageSource skin2 = new ImageSourceConverter().ConvertFromString(selectedLlama) as ImageSource;
+                    llama.Source = skin2;
+                    skinNum = 0;
+                    break;
+            }
         }
     }
 }

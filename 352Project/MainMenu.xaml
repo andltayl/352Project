@@ -30,7 +30,7 @@
         <Button Content="High Scores" HorizontalAlignment="Left" Margin="62,296,0,0" VerticalAlignment="Top" Width="108" Height="30" Background="White" Click="Button_Click"/>
         <Button x:Name="exitButton" Content="Exit" HorizontalAlignment="Left" Margin="62,349,0,0" VerticalAlignment="Top" Width="108" Height="29" RenderTransformOrigin="0.502,3.05" Background="White" Click="exitButton_Click"/>
 
-        <Image x:Name="llama" Source ="pack://application:,,,/Resources/llama.png" HorizontalAlignment="Left" Margin="224,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="1,0" Height="311" Width="232">
+        <Image x:Name="llama" HorizontalAlignment="Left" Margin="224,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="1,0" Height="311" Width="232">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -71,6 +71,12 @@
         <TextBlock HorizontalAlignment="Left" Margin="506,191,0,0" TextWrapping="Wrap" Text="Jump through pipes! Don't hit one or it's game over!" TextAlignment="Center" VerticalAlignment="Top" Height="37" Width="244" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" Height="34" Margin="559,53,0,0" TextWrapping="Wrap" Text="Point Values" TextAlignment="Center" VerticalAlignment="Top" Width="149" Background="{x:Null}" Foreground="#FFFDFDFD" FontWeight="Bold" FontSize="22"/>
         <TextBlock HorizontalAlignment="Left" Margin="506,92,0,0" TextWrapping="Wrap" TextAlignment="Justify" VerticalAlignment="Top" Height="60" Width="244" Foreground="White"><Run Text="Easy:&#x9;&#x9;1 score = 0.5 points"/><LineBreak/><Run Text="Normal: &#x9;&#x9;1 score =    1 points"/><LineBreak/><Run Text="Hard: &#x9;&#x9;1 score =    2 points"/></TextBlock>
+        <Button x:Name="Skin_Select" Content="" HorizontalAlignment="Left" Margin="208,10,0,0" VerticalAlignment="Top" Width="278" Height="399" Opacity="0" Click="Skin_Select_Button"/>
+        <TextBlock x:Name="Title_Copy1" HorizontalAlignment="Center" Height="66" Margin="219,10,308,0" TextWrapping="Wrap" Text=" Click the llama to select a new skin!" VerticalAlignment="Top" Width="265" Background="{x:Null}" Foreground="#FFFBF4F4" FontWeight="Bold" FontSize="14" RenderTransformOrigin="1.569,0.288" IsEnabled="False">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
 
 
     </Grid>
