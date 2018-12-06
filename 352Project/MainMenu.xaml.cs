@@ -129,7 +129,6 @@ namespace _352Project
                     selectedLlama = basicLlama.getSkin();
                     ImageSource skin = new ImageSourceConverter().ConvertFromString(selectedLlama) as ImageSource;
                     llama.Source = skin;
-                    
                     break;
                 case 2:
                     llamaSkin basicLlama1 = new PinkLlama(new DefaultLlama());

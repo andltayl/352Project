@@ -209,11 +209,12 @@ namespace _352Project
         //transition to High Scores screen
         void GameOver(int carry)
         {
-            MessageBox.Show("GAME OVER");
+          
             //points changed for difficulty
             if (difNum == 1) { carry /= 2; }    //Easy
             else if (difNum == 2) { }           //Normal
             else { carry *= 2; }                //Hard
+
             HighScores h = new HighScores(carry, difNum, selectedLlama);
             h.Show();
             this.Close();
