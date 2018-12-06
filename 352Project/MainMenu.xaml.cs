@@ -27,17 +27,23 @@ namespace _352Project
         int llamaHighPoint = 43;    //starting position of llama (top)
         int llamaLowPoint = 90;     //lowest position for llama path
         string selectedLlama;
+    
 
         public MainMenu()
         {
             llamaSkin basicLlama = new DefaultLlama();
+
+
             selectedLlama = basicLlama.getSkin();           
       
             InitializeComponent();
             InitializeComponent();
 
+            
+
             ImageSource skin = new ImageSourceConverter().ConvertFromString(selectedLlama) as ImageSource;
             llama.Source = skin;
+      
 
             //timer for llama movement
             DispatcherTimer timer = new DispatcherTimer();
@@ -113,13 +119,17 @@ namespace _352Project
             //increment difficulty choice on each click
             skinNum++;
 
+      
+            
             switch (skinNum)
+                    
             {
                 case 1:
                     llamaSkin basicLlama = new BrownLlama(new DefaultLlama());
                     selectedLlama = basicLlama.getSkin();
                     ImageSource skin = new ImageSourceConverter().ConvertFromString(selectedLlama) as ImageSource;
                     llama.Source = skin;
+                    
                     break;
                 case 2:
                     llamaSkin basicLlama1 = new PinkLlama(new DefaultLlama());
@@ -132,6 +142,7 @@ namespace _352Project
                     selectedLlama = basicLlama2.getSkin();
                     ImageSource skin2 = new ImageSourceConverter().ConvertFromString(selectedLlama) as ImageSource;
                     llama.Source = skin2;
+              
                     skinNum = 0;
                     break;
             }
