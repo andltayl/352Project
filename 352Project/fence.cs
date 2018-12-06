@@ -55,7 +55,7 @@ namespace _352Project
             double sizeTest = (Gameshow.ActualHeight + llama.ActualHeight + (wOfBetween * 2)) / 2;
             //random sizes of fences
             Random random = new Random();
-            double spaceChanger = (-100) + (random.NextDouble() * (100 * 2)); //between 100 up or down on fence positions
+            double spaceChanger = random.Next(0,200); //between 100 up or down on fence positions
             double fenceTopLen = sizeTest - spaceChanger;
             double fenceBottomLen = sizeTest + spaceChanger;
             //NOTE: All bottom fences are even # and top fences are odd #

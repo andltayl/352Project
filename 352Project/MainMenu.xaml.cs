@@ -21,7 +21,7 @@ namespace _352Project
     /// </summary>
     public partial class MainMenu : Window
     {
-        int difficultyNum = 2;      //number that correlates to difficulty setting
+        int difficultyNum = 0;      //number that correlates to difficulty setting
         bool up = false;            //direction llama should move
         int llamaHighPoint = 43;    //starting position of llama (top)
         int llamaLowPoint = 90;     //lowest position for llama path
@@ -69,11 +69,11 @@ namespace _352Project
             difficultyNum++;
 
             switch (difficultyNum) {
-                case 1: difficultyButton.Content = "Difficulty: Easy";
+                case 1: difficultyButton.Content = "Difficulty: Hard";
                     break;
-                case 2: difficultyButton.Content = "Difficulty: Normal";
+                case 2: difficultyButton.Content = "Difficulty: Easy";
                     break;
-                default: difficultyButton.Content = "Difficulty: Hard";
+                default: difficultyButton.Content = "Difficulty: Default";
                     difficultyNum = 0;
                     break;
             }

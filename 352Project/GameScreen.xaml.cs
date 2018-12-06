@@ -18,9 +18,9 @@ namespace _352Project
     public partial class GameScreen : Window
     {
         //for movement of llama
-        private double gravity = 0.05;
+        private double gravity = 0.1;
         private double velocity = 0;                    //how quickly llama is dropping
-        private double leapDist = 3;
+        private double leapDist = 3.5;
         //timer variable
         private int minutes = 0;
         private int seconds = 0;
@@ -186,26 +186,26 @@ namespace _352Project
         {
             switch (difNum)
             {
-                //Easy
-                case 1:
-                    approaching = 1;
-                    wOfBetween = 80;
-                    totalSum = 160;
-                    distBetweenFence = 5;
-                    break;
-                //Medium
-                case 2:
-                    approaching = 2;
-                    wOfBetween = 60;
-                    totalSum = 80;
-                    distBetweenFence = 1;
-                    break;
                 //Hard
-                default:
+                case 1:
                     approaching = 3;
                     wOfBetween = 40;
                     totalSum = 54;
-                    distBetweenFence = 1;
+                    distBetweenFence = 1;                    
+                    break;
+                //Easy
+                case 2:
+                    approaching = 1;
+                    wOfBetween = 80;
+                    totalSum = 160;
+                    distBetweenFence = 5;        
+                    break;
+                //Medium
+                default:
+                    approaching = 2;
+                    wOfBetween = 60;
+                    totalSum = 80;
+                    distBetweenFence = 2.5;
                     break;
             }
             allFences = new Fence(wOfBetween, approaching, totalSum);
@@ -216,9 +216,9 @@ namespace _352Project
         {
             MessageBox.Show("GAME OVER");
             //points changed for difficulty
-            if (difNum == 1) { carry /= 2; }    //Easy
-            else if (difNum == 2) { }           //Normal
-            else { carry *= 2; }                //Hard
+            if (difNum == 1) { carry *= 2; }        //Hard
+            else if (difNum == 2) { carry /= 2; }   //Easy
+            else { }                                //Normal
             HighScores h = new HighScores(carry, difNum);
             h.Show();
             this.Close();
