@@ -18,17 +18,14 @@ namespace _352Project
     public partial class GameScreen : Window
     {
         //for movement of llama
-        private double gravity = 0.1;
+        private double gravity = 0.05;
         private double velocity = 0;                    //how quickly llama is dropping
-        private double leapDist = 3.5;
+        private double leapDist = 3;
         //timer variable
         private int minutes = 0;
         private int seconds = 0;
         //Difficulty settings
         private int difNum = 0;
-        private double approaching = 1;   //how fast fences move              demo = 1        Med = 2     Hard = 3
-        private int wOfBetween = 80;      //space between fences              demo = 80       Med = 60    Hard = 40
-        private int totalSum = 160;         //Points need to score 1 point    demo = 160       Med = 80    Hard = 54
         private double distBetweenFence = 5; //Distance between each fence       demo = 5           Med = 1     Hard = 1
         private Fence allFences;
         //NOTE: All bottom fences are even # and top fences are odd #
@@ -186,29 +183,22 @@ namespace _352Project
         {
             switch (difNum)
             {
-                //Hard
-                case 1:
-                    approaching = 3;
-                    wOfBetween = 40;
-                    totalSum = 54;
-                    distBetweenFence = 1;                    
-                    break;
                 //Easy
-                case 2:
-                    approaching = 1;
-                    wOfBetween = 80;
-                    totalSum = 160;
-                    distBetweenFence = 5;        
+                case 1:
+                    allFences = new EasyFence();
+                    distBetweenFence = 5;
                     break;
                 //Medium
+                case 2:
+                    allFences = new NormalFence();
+                    distBetweenFence = 1;
+                    break;
+                //Hard
                 default:
-                    approaching = 2;
-                    wOfBetween = 60;
-                    totalSum = 80;
-                    distBetweenFence = 2.5;
+                    allFences = new HardFence();
+                    distBetweenFence = 1;
                     break;
             }
-            allFences = new Fence(wOfBetween, approaching, totalSum);
         }
 
         //transition to High Scores screen
@@ -216,9 +206,9 @@ namespace _352Project
         {
             MessageBox.Show("GAME OVER");
             //points changed for difficulty
-            if (difNum == 1) { carry *= 2; }        //Hard
-            else if (difNum == 2) { carry /= 2; }   //Easy
-            else { }                                //Normal
+            if (difNum == 1) { carry /= 2; }    //Easy
+            else if (difNum == 2) { }           //Normal
+            else { carry *= 2; }                //Hard
             HighScores h = new HighScores(carry, difNum);
             h.Show();
             this.Close();
